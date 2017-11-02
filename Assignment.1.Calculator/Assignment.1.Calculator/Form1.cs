@@ -4,9 +4,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace Assignment._1.Calculator
 {
@@ -16,8 +18,12 @@ namespace Assignment._1.Calculator
         private bool isDouble;
         private bool isCalculated;
         private bool isFirstTimeAfterCalculate;
-
+        private bool isEuro;
         private double oldNumber;
+
+        private RatesResult currentCurrencyValue;
+
+
         private enum Operations
         {
             add,
@@ -176,6 +182,41 @@ namespace Assignment._1.Calculator
         private void bt_Divide_Click(object sender, EventArgs e)
         {
             operatorClicked(Operations.divide);
+        }
+
+        private void bt_ConvertCurrency_Click(object sender, EventArgs e)
+        {
+            if (currentCurrencyValue == null || currentCurrencyValue.Date < DateTime.Now.AddDays(-2))
+            {
+                UpdateCurrencyRates();
+            }
+
+            if (!isEuro)
+            {
+                double result = Math.Round(double.Parse(this.tb_Input.Text) * currentCurrencyValue.Rates.USD, 2);
+                this.tb_Input.Text = result.ToString();
+                this.bt_ConvertCurrency.Text = "€";
+            }
+            else
+            {
+                double value = double.Parse(this.tb_Input.Text);
+                double result = Math.Round((value / currentCurrencyValue.Rates.USD), 2);
+                this.tb_Input.Text = result.ToString();
+                this.bt_ConvertCurrency.Text = "$";
+            }
+
+            isEuro = !isEuro;
+
+        }
+
+        public void UpdateCurrencyRates()
+        {
+            using (HttpClient httpClient = new HttpClient())
+            {
+                var message = httpClient.GetAsync("http://api.fixer.io/latest?symbols=USD");
+                Task<string> content = message.Result.Content.ReadAsStringAsync();
+                currentCurrencyValue = JsonConvert.DeserializeObject<RatesResult>(content.Result);
+            }
         }
     }
 }

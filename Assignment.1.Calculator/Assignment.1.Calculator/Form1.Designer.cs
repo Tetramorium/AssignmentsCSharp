@@ -43,7 +43,7 @@
             this.bt_Substract = new System.Windows.Forms.Button();
             this.bt_Multiply = new System.Windows.Forms.Button();
             this.bt_Percentage = new System.Windows.Forms.Button();
-            this.bt_Euro = new System.Windows.Forms.Button();
+            this.bt_ConvertCurrency = new System.Windows.Forms.Button();
             this.tb_Input = new System.Windows.Forms.TextBox();
             this.bt_Clear = new System.Windows.Forms.Button();
             this.bt_Comma = new System.Windows.Forms.Button();
@@ -214,15 +214,16 @@
             this.bt_Percentage.Text = "%";
             this.bt_Percentage.UseVisualStyleBackColor = true;
             // 
-            // bt_Euro
+            // bt_ConvertCurrency
             // 
-            this.bt_Euro.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_Euro.Location = new System.Drawing.Point(161, 70);
-            this.bt_Euro.Name = "bt_Euro";
-            this.bt_Euro.Size = new System.Drawing.Size(50, 50);
-            this.bt_Euro.TabIndex = 16;
-            this.bt_Euro.Text = "€";
-            this.bt_Euro.UseVisualStyleBackColor = true;
+            this.bt_ConvertCurrency.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_ConvertCurrency.Location = new System.Drawing.Point(161, 70);
+            this.bt_ConvertCurrency.Name = "bt_ConvertCurrency";
+            this.bt_ConvertCurrency.Size = new System.Drawing.Size(50, 50);
+            this.bt_ConvertCurrency.TabIndex = 16;
+            this.bt_ConvertCurrency.Text = "$";
+            this.bt_ConvertCurrency.UseVisualStyleBackColor = true;
+            this.bt_ConvertCurrency.Click += new System.EventHandler(this.bt_ConvertCurrency_Click);
             // 
             // tb_Input
             // 
@@ -286,7 +287,7 @@
             this.Controls.Add(this.bt_Comma);
             this.Controls.Add(this.bt_Clear);
             this.Controls.Add(this.tb_Input);
-            this.Controls.Add(this.bt_Euro);
+            this.Controls.Add(this.bt_ConvertCurrency);
             this.Controls.Add(this.bt_Percentage);
             this.Controls.Add(this.bt_Multiply);
             this.Controls.Add(this.bt_Substract);
@@ -326,7 +327,7 @@
         private System.Windows.Forms.Button bt_Substract;
         private System.Windows.Forms.Button bt_Multiply;
         private System.Windows.Forms.Button bt_Percentage;
-        private System.Windows.Forms.Button bt_Euro;
+        private System.Windows.Forms.Button bt_ConvertCurrency;
         private System.Windows.Forms.TextBox tb_Input;
         private System.Windows.Forms.Button bt_Clear;
         private System.Windows.Forms.Button bt_Comma;

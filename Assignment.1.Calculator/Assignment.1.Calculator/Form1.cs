@@ -17,12 +17,12 @@ namespace Assignment._1.Calculator
     {
 
         private bool isDouble;
-        private bool isCalculated;
-        private bool isFirstTimeAfterCalculate;
         private bool isEuro;
+        private double result;
+
+        private bool operatorIsClicked;
 
         private double oldNumber;
-        private Operations oldOperation;
         private Operations currentOperation;
 
         private RatesResult currentCurrencyValue;
@@ -47,13 +47,11 @@ namespace Assignment._1.Calculator
 
         private void AddToInput(string toAdd)
         {
-            if (this.tb_Input.Text == "0" || (this.currentOperation != Operations.nothing && isFirstTimeAfterCalculate))
+            if (this.tb_Input.Text == "0" || operatorIsClicked)
             {
-                if (isCalculated)
-                    clearInput();
-
+                oldNumber = double.Parse(this.tb_Input.Text);
                 this.tb_Input.Text = toAdd.ToString();
-                isFirstTimeAfterCalculate = false;
+                operatorIsClicked = false;
             }
             else
                 this.tb_Input.Text += toAdd;
@@ -69,7 +67,6 @@ namespace Assignment._1.Calculator
         {
             isDouble = false;
             currentOperation = Operations.nothing;
-            isCalculated = false;
         }
 
         private void bt_Comma_Click(object sender, EventArgs e)
@@ -91,39 +88,133 @@ namespace Assignment._1.Calculator
             switch (currentOperation)
             {
                 case Operations.add:
-                    this.tb_Input.Text = (oldNumber + double.Parse(this.tb_Input.Text)).ToString();
+                    result = (oldNumber + double.Parse(this.tb_Input.Text));
                     break;
                 case Operations.substract:
-                    this.tb_Input.Text = (oldNumber - double.Parse(this.tb_Input.Text)).ToString();
+                    result = (oldNumber - double.Parse(this.tb_Input.Text));
                     break;
                 case Operations.multiply:
-                    this.tb_Input.Text = (oldNumber * double.Parse(this.tb_Input.Text)).ToString();
+                    result = (oldNumber * double.Parse(this.tb_Input.Text));
                     break;
                 case Operations.divide:
                     if (double.Parse(this.tb_Input.Text) != 0)
                     {
-                        this.tb_Input.Text = (oldNumber / double.Parse(this.tb_Input.Text)).ToString();
-                    }             
+                        result = (oldNumber / double.Parse(this.tb_Input.Text));
+                    }
                     else
                     {
                         Panel p = new Panel();
                         p.BackgroundImage = new Bitmap("oops.jpg");
-                        p.Dock = DockStyle.Fill;                      
+                        p.Dock = DockStyle.Fill;
                         this.Controls.Add(p);
                         p.BringToFront();
+                        p.DoubleClick += P_Click;
                     }
                     break;
                 case Operations.modulus:
-                    this.tb_Input.Text = (oldNumber % double.Parse(this.tb_Input.Text)).ToString();
+                    result = (oldNumber % double.Parse(this.tb_Input.Text));
                     break;
             }
 
-            if (currentOperation != Operations.nothing)
-                isCalculated = true;
+            this.tb_Input.Text = Math.Round(result, 6).ToString();
 
+            operatorIsClicked = true;
             currentOperation = Operations.nothing;
         }
 
+        private void P_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Don't divide by zero!");
+        }
+
+        private void operatorClicked(Operations operation)
+        {
+            operatorIsClicked = true;
+
+            if (operation != Operations.nothing)
+            {
+                if (currentOperation != Operations.nothing)
+                    Calculate();
+            }
+
+            currentOperation = operation;
+        }
+
+        private void bt_ConvertCurrency_Click(object sender, EventArgs e)
+        {
+            if (currentCurrencyValue.Rates == null || currentCurrencyValue.Date < DateTime.Now.AddDays(-2))
+            {
+                try
+                {
+                    UpdateCurrencyRates();
+                }
+                catch
+                {
+                    MessageBox.Show("Currency convertor API is currently unavailable.");
+                }
+            }
+            if (currentCurrencyValue.Rates != null)
+            {
+                if (!isEuro)
+                {
+                    double result = Math.Round(double.Parse(this.tb_Input.Text) * currentCurrencyValue.Rates.USD, 5);
+                    this.tb_Input.Text = result.ToString();
+                    this.bt_ConvertCurrency.Text = "€";
+                    this.lbl_CurrentCurrency.Text = "$";
+                }
+                else
+                {
+                    double value = double.Parse(this.tb_Input.Text);
+                    double result = Math.Round((value / currentCurrencyValue.Rates.USD), 2);
+                    this.tb_Input.Text = result.ToString();
+                    this.bt_ConvertCurrency.Text = "$";
+                    this.lbl_CurrentCurrency.Text = "€";
+                }
+
+                isEuro = !isEuro;
+            }
+            else
+            {
+                MessageBox.Show("Currency convertor API is currently unavailable.");
+            }
+        }
+
+        public void UpdateCurrencyRates()
+        {
+            using (HttpClient httpClient = new HttpClient())
+            {
+                var message = httpClient.GetAsync("http://api.fixer.io/latest?symbols=USD");
+                Task<string> content = message.Result.Content.ReadAsStringAsync();
+                currentCurrencyValue = JsonConvert.DeserializeObject<RatesResult>(content.Result);
+            }
+        }
+        //Operator button events
+        private void bt_Percentage_Click(object sender, EventArgs e)
+        {
+            operatorClicked(Operations.modulus);
+        }
+
+        private void bt_Add_Click(object sender, EventArgs e)
+        {
+            operatorClicked(Operations.add);
+        }
+
+        private void bt_Substract_Click(object sender, EventArgs e)
+        {
+            operatorClicked(Operations.substract);
+        }
+
+        private void bt_Divide_Click(object sender, EventArgs e)
+        {
+            operatorClicked(Operations.divide);
+        }
+
+        private void bt_Multiply_Click(object sender, EventArgs e)
+        {
+            operatorClicked(Operations.multiply);
+        }
+
+        //button events
         private void bt_1_Click(object sender, EventArgs e)
         {
             AddToInput("1");
@@ -172,95 +263,6 @@ namespace Assignment._1.Calculator
         private void bt_0_Click(object sender, EventArgs e)
         {
             AddToInput("0");
-        }
-
-        private void operatorClicked(Operations operation)
-        {
-            if (operation != Operations.nothing)
-            {
-                Calculate();
-
-                this.oldNumber = double.Parse(this.tb_Input.Text);
-                oldOperation = operation;
-
-                clearInput();
-                currentOperation = operation;
-                isFirstTimeAfterCalculate = true;
-            }
-        }
-
-        private void bt_Percentage_Click(object sender, EventArgs e)
-        {
-            operatorClicked(Operations.modulus);
-        }
-
-        private void bt_Add_Click(object sender, EventArgs e)
-        {
-            operatorClicked(Operations.add);
-        }
-
-        private void bt_Substract_Click(object sender, EventArgs e)
-        {
-            operatorClicked(Operations.substract);
-        }
-
-        private void bt_Divide_Click(object sender, EventArgs e)
-        {
-            operatorClicked(Operations.divide);
-        }
-
-        private void bt_Multiply_Click(object sender, EventArgs e)
-        {
-            operatorClicked(Operations.multiply);
-        }
-
-        private void bt_ConvertCurrency_Click(object sender, EventArgs e)
-        {
-            if (currentCurrencyValue.Rates == null || currentCurrencyValue.Date < DateTime.Now.AddDays(-2))
-            {
-                try
-                {
-                    UpdateCurrencyRates();
-                }
-                catch
-                {
-                    MessageBox.Show("Currency convertor API is currently unavailable.");
-                }
-            }
-            if (currentCurrencyValue.Rates != null)
-            {
-                if (!isEuro)
-                {
-                    double result = Math.Round(double.Parse(this.tb_Input.Text) * currentCurrencyValue.Rates.USD, 2);
-                    this.tb_Input.Text = result.ToString();
-                    this.bt_ConvertCurrency.Text = "€";
-                    this.lbl_CurrentCurrency.Text = "$";
-                }
-                else
-                {
-                    double value = double.Parse(this.tb_Input.Text);
-                    double result = Math.Round((value / currentCurrencyValue.Rates.USD), 2);
-                    this.tb_Input.Text = result.ToString();
-                    this.bt_ConvertCurrency.Text = "$";
-                    this.lbl_CurrentCurrency.Text = "€";
-                }
-
-                isEuro = !isEuro;
-            }
-            else
-            {
-                MessageBox.Show("Currency convertor API is currently unavailable.");
-            }
-        }
-
-        public void UpdateCurrencyRates()
-        {
-            using (HttpClient httpClient = new HttpClient())
-            {
-                var message = httpClient.GetAsync("http://api.fixer.io/latest?symbols=USD");
-                Task<string> content = message.Result.Content.ReadAsStringAsync();
-                currentCurrencyValue = JsonConvert.DeserializeObject<RatesResult>(content.Result);
-            }
-        }
+        } 
     }
 }

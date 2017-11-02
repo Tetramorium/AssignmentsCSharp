@@ -100,7 +100,18 @@ namespace Assignment._1.Calculator
                     this.tb_Input.Text = (oldNumber * double.Parse(this.tb_Input.Text)).ToString();
                     break;
                 case Operations.divide:
-                    this.tb_Input.Text = (oldNumber / double.Parse(this.tb_Input.Text)).ToString();
+                    if (double.Parse(this.tb_Input.Text) != 0)
+                    {
+                        this.tb_Input.Text = (oldNumber / double.Parse(this.tb_Input.Text)).ToString();
+                    }             
+                    else
+                    {
+                        Panel p = new Panel();
+                        p.BackgroundImage = new Bitmap("oops.jpg");
+                        p.Dock = DockStyle.Fill;                      
+                        this.Controls.Add(p);
+                        p.BringToFront();
+                    }
                     break;
                 case Operations.modulus:
                     this.tb_Input.Text = (oldNumber % double.Parse(this.tb_Input.Text)).ToString();
@@ -235,7 +246,8 @@ namespace Assignment._1.Calculator
                 }
 
                 isEuro = !isEuro;
-            } else
+            }
+            else
             {
                 MessageBox.Show("Currency convertor API is currently unavailable.");
             }

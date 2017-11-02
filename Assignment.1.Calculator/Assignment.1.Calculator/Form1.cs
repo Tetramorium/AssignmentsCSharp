@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using System.Threading;
 
 namespace Assignment._1.Calculator
 {
@@ -19,10 +20,12 @@ namespace Assignment._1.Calculator
         private bool isCalculated;
         private bool isFirstTimeAfterCalculate;
         private bool isEuro;
+
         private double oldNumber;
+        private Operations oldOperation;
+        private Operations currentOperation;
 
         private RatesResult currentCurrencyValue;
-
 
         private enum Operations
         {
@@ -30,15 +33,16 @@ namespace Assignment._1.Calculator
             substract,
             multiply,
             divide,
+            modulus,
             nothing
         };
-
-        private Operations currentOperation = Operations.nothing;
 
         public Form1()
         {
             InitializeComponent();
 
+            currentOperation = Operations.nothing;
+            currentCurrencyValue = new RatesResult();
         }
 
         private void AddToInput(string toAdd)
@@ -98,7 +102,11 @@ namespace Assignment._1.Calculator
                 case Operations.divide:
                     this.tb_Input.Text = (oldNumber / double.Parse(this.tb_Input.Text)).ToString();
                     break;
+                case Operations.modulus:
+                    this.tb_Input.Text = (oldNumber % double.Parse(this.tb_Input.Text)).ToString();
+                    break;
             }
+
             if (currentOperation != Operations.nothing)
                 isCalculated = true;
 
@@ -157,16 +165,22 @@ namespace Assignment._1.Calculator
 
         private void operatorClicked(Operations operation)
         {
-            if (currentOperation != Operations.nothing)
+            if (operation != Operations.nothing)
+            {
                 Calculate();
 
-            if (operation != Operations.add)
-            {
                 this.oldNumber = double.Parse(this.tb_Input.Text);
+                oldOperation = operation;
+
                 clearInput();
                 currentOperation = operation;
                 isFirstTimeAfterCalculate = true;
             }
+        }
+
+        private void bt_Percentage_Click(object sender, EventArgs e)
+        {
+            operatorClicked(Operations.modulus);
         }
 
         private void bt_Add_Click(object sender, EventArgs e)
@@ -184,29 +198,47 @@ namespace Assignment._1.Calculator
             operatorClicked(Operations.divide);
         }
 
+        private void bt_Multiply_Click(object sender, EventArgs e)
+        {
+            operatorClicked(Operations.multiply);
+        }
+
         private void bt_ConvertCurrency_Click(object sender, EventArgs e)
         {
-            if (currentCurrencyValue == null || currentCurrencyValue.Date < DateTime.Now.AddDays(-2))
+            if (currentCurrencyValue.Rates == null || currentCurrencyValue.Date < DateTime.Now.AddDays(-2))
             {
-                UpdateCurrencyRates();
+                try
+                {
+                    UpdateCurrencyRates();
+                }
+                catch
+                {
+                    MessageBox.Show("Currency convertor API is currently unavailable.");
+                }
             }
-
-            if (!isEuro)
+            if (currentCurrencyValue.Rates != null)
             {
-                double result = Math.Round(double.Parse(this.tb_Input.Text) * currentCurrencyValue.Rates.USD, 2);
-                this.tb_Input.Text = result.ToString();
-                this.bt_ConvertCurrency.Text = "€";
-            }
-            else
+                if (!isEuro)
+                {
+                    double result = Math.Round(double.Parse(this.tb_Input.Text) * currentCurrencyValue.Rates.USD, 2);
+                    this.tb_Input.Text = result.ToString();
+                    this.bt_ConvertCurrency.Text = "€";
+                    this.lbl_CurrentCurrency.Text = "$";
+                }
+                else
+                {
+                    double value = double.Parse(this.tb_Input.Text);
+                    double result = Math.Round((value / currentCurrencyValue.Rates.USD), 2);
+                    this.tb_Input.Text = result.ToString();
+                    this.bt_ConvertCurrency.Text = "$";
+                    this.lbl_CurrentCurrency.Text = "€";
+                }
+
+                isEuro = !isEuro;
+            } else
             {
-                double value = double.Parse(this.tb_Input.Text);
-                double result = Math.Round((value / currentCurrencyValue.Rates.USD), 2);
-                this.tb_Input.Text = result.ToString();
-                this.bt_ConvertCurrency.Text = "$";
+                MessageBox.Show("Currency convertor API is currently unavailable.");
             }
-
-            isEuro = !isEuro;
-
         }
 
         public void UpdateCurrencyRates()

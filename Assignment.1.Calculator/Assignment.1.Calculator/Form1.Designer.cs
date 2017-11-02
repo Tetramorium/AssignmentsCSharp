@@ -47,14 +47,14 @@
             this.tb_Input = new System.Windows.Forms.TextBox();
             this.bt_Clear = new System.Windows.Forms.Button();
             this.bt_Comma = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_CurrentCurrency = new System.Windows.Forms.Label();
             this.bt_Divide = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // bt_1
             // 
             this.bt_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_1.Location = new System.Drawing.Point(49, 126);
+            this.bt_1.Location = new System.Drawing.Point(8, 102);
             this.bt_1.Name = "bt_1";
             this.bt_1.Size = new System.Drawing.Size(50, 50);
             this.bt_1.TabIndex = 0;
@@ -65,7 +65,7 @@
             // bt_2
             // 
             this.bt_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_2.Location = new System.Drawing.Point(105, 126);
+            this.bt_2.Location = new System.Drawing.Point(64, 102);
             this.bt_2.Name = "bt_2";
             this.bt_2.Size = new System.Drawing.Size(50, 50);
             this.bt_2.TabIndex = 1;
@@ -76,7 +76,7 @@
             // bt_3
             // 
             this.bt_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_3.Location = new System.Drawing.Point(161, 126);
+            this.bt_3.Location = new System.Drawing.Point(120, 102);
             this.bt_3.Name = "bt_3";
             this.bt_3.Size = new System.Drawing.Size(50, 50);
             this.bt_3.TabIndex = 2;
@@ -87,7 +87,7 @@
             // bt_4
             // 
             this.bt_4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_4.Location = new System.Drawing.Point(49, 182);
+            this.bt_4.Location = new System.Drawing.Point(8, 158);
             this.bt_4.Name = "bt_4";
             this.bt_4.Size = new System.Drawing.Size(50, 50);
             this.bt_4.TabIndex = 3;
@@ -98,7 +98,7 @@
             // bt_5
             // 
             this.bt_5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_5.Location = new System.Drawing.Point(105, 182);
+            this.bt_5.Location = new System.Drawing.Point(64, 158);
             this.bt_5.Name = "bt_5";
             this.bt_5.Size = new System.Drawing.Size(50, 50);
             this.bt_5.TabIndex = 4;
@@ -109,7 +109,7 @@
             // bt_6
             // 
             this.bt_6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_6.Location = new System.Drawing.Point(161, 182);
+            this.bt_6.Location = new System.Drawing.Point(120, 158);
             this.bt_6.Name = "bt_6";
             this.bt_6.Size = new System.Drawing.Size(50, 50);
             this.bt_6.TabIndex = 5;
@@ -120,7 +120,7 @@
             // bt_7
             // 
             this.bt_7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_7.Location = new System.Drawing.Point(49, 238);
+            this.bt_7.Location = new System.Drawing.Point(8, 214);
             this.bt_7.Name = "bt_7";
             this.bt_7.Size = new System.Drawing.Size(50, 50);
             this.bt_7.TabIndex = 6;
@@ -131,7 +131,7 @@
             // bt_8
             // 
             this.bt_8.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_8.Location = new System.Drawing.Point(105, 238);
+            this.bt_8.Location = new System.Drawing.Point(64, 214);
             this.bt_8.Name = "bt_8";
             this.bt_8.Size = new System.Drawing.Size(50, 50);
             this.bt_8.TabIndex = 7;
@@ -142,7 +142,7 @@
             // bt_9
             // 
             this.bt_9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_9.Location = new System.Drawing.Point(161, 238);
+            this.bt_9.Location = new System.Drawing.Point(120, 214);
             this.bt_9.Name = "bt_9";
             this.bt_9.Size = new System.Drawing.Size(50, 50);
             this.bt_9.TabIndex = 8;
@@ -153,7 +153,7 @@
             // bt_0
             // 
             this.bt_0.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_0.Location = new System.Drawing.Point(105, 294);
+            this.bt_0.Location = new System.Drawing.Point(64, 270);
             this.bt_0.Name = "bt_0";
             this.bt_0.Size = new System.Drawing.Size(50, 50);
             this.bt_0.TabIndex = 9;
@@ -164,7 +164,7 @@
             // bt_Calculate
             // 
             this.bt_Calculate.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_Calculate.Location = new System.Drawing.Point(217, 294);
+            this.bt_Calculate.Location = new System.Drawing.Point(176, 270);
             this.bt_Calculate.Name = "bt_Calculate";
             this.bt_Calculate.Size = new System.Drawing.Size(50, 50);
             this.bt_Calculate.TabIndex = 11;
@@ -175,7 +175,7 @@
             // bt_Add
             // 
             this.bt_Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_Add.Location = new System.Drawing.Point(217, 238);
+            this.bt_Add.Location = new System.Drawing.Point(176, 214);
             this.bt_Add.Name = "bt_Add";
             this.bt_Add.Size = new System.Drawing.Size(50, 50);
             this.bt_Add.TabIndex = 12;
@@ -186,7 +186,7 @@
             // bt_Substract
             // 
             this.bt_Substract.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_Substract.Location = new System.Drawing.Point(217, 182);
+            this.bt_Substract.Location = new System.Drawing.Point(176, 158);
             this.bt_Substract.Name = "bt_Substract";
             this.bt_Substract.Size = new System.Drawing.Size(50, 50);
             this.bt_Substract.TabIndex = 13;
@@ -197,27 +197,29 @@
             // bt_Multiply
             // 
             this.bt_Multiply.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_Multiply.Location = new System.Drawing.Point(217, 126);
+            this.bt_Multiply.Location = new System.Drawing.Point(176, 102);
             this.bt_Multiply.Name = "bt_Multiply";
             this.bt_Multiply.Size = new System.Drawing.Size(50, 50);
             this.bt_Multiply.TabIndex = 14;
             this.bt_Multiply.Text = "*";
             this.bt_Multiply.UseVisualStyleBackColor = true;
+            this.bt_Multiply.Click += new System.EventHandler(this.bt_Multiply_Click);
             // 
             // bt_Percentage
             // 
             this.bt_Percentage.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_Percentage.Location = new System.Drawing.Point(105, 70);
+            this.bt_Percentage.Location = new System.Drawing.Point(64, 46);
             this.bt_Percentage.Name = "bt_Percentage";
             this.bt_Percentage.Size = new System.Drawing.Size(50, 50);
             this.bt_Percentage.TabIndex = 15;
             this.bt_Percentage.Text = "%";
             this.bt_Percentage.UseVisualStyleBackColor = true;
+            this.bt_Percentage.Click += new System.EventHandler(this.bt_Percentage_Click);
             // 
             // bt_ConvertCurrency
             // 
             this.bt_ConvertCurrency.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_ConvertCurrency.Location = new System.Drawing.Point(161, 70);
+            this.bt_ConvertCurrency.Location = new System.Drawing.Point(120, 46);
             this.bt_ConvertCurrency.Name = "bt_ConvertCurrency";
             this.bt_ConvertCurrency.Size = new System.Drawing.Size(50, 50);
             this.bt_ConvertCurrency.TabIndex = 16;
@@ -227,18 +229,19 @@
             // 
             // tb_Input
             // 
+            this.tb_Input.Enabled = false;
             this.tb_Input.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_Input.Location = new System.Drawing.Point(12, 32);
+            this.tb_Input.Location = new System.Drawing.Point(8, 8);
             this.tb_Input.Name = "tb_Input";
             this.tb_Input.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.tb_Input.Size = new System.Drawing.Size(367, 32);
+            this.tb_Input.Size = new System.Drawing.Size(183, 32);
             this.tb_Input.TabIndex = 17;
             this.tb_Input.Text = "0";
             // 
             // bt_Clear
             // 
             this.bt_Clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_Clear.Location = new System.Drawing.Point(49, 70);
+            this.bt_Clear.Location = new System.Drawing.Point(8, 46);
             this.bt_Clear.Name = "bt_Clear";
             this.bt_Clear.Size = new System.Drawing.Size(50, 50);
             this.bt_Clear.TabIndex = 18;
@@ -249,7 +252,7 @@
             // bt_Comma
             // 
             this.bt_Comma.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_Comma.Location = new System.Drawing.Point(161, 294);
+            this.bt_Comma.Location = new System.Drawing.Point(120, 270);
             this.bt_Comma.Name = "bt_Comma";
             this.bt_Comma.Size = new System.Drawing.Size(50, 50);
             this.bt_Comma.TabIndex = 19;
@@ -257,19 +260,21 @@
             this.bt_Comma.UseVisualStyleBackColor = true;
             this.bt_Comma.Click += new System.EventHandler(this.bt_Comma_Click);
             // 
-            // label1
+            // lbl_CurrentCurrency
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(344, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "label1";
+            this.lbl_CurrentCurrency.AutoSize = true;
+            this.lbl_CurrentCurrency.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_CurrentCurrency.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_CurrentCurrency.Location = new System.Drawing.Point(197, 11);
+            this.lbl_CurrentCurrency.Name = "lbl_CurrentCurrency";
+            this.lbl_CurrentCurrency.Size = new System.Drawing.Size(24, 26);
+            this.lbl_CurrentCurrency.TabIndex = 20;
+            this.lbl_CurrentCurrency.Text = "€";
             // 
             // bt_Divide
             // 
             this.bt_Divide.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_Divide.Location = new System.Drawing.Point(217, 70);
+            this.bt_Divide.Location = new System.Drawing.Point(176, 46);
             this.bt_Divide.Name = "bt_Divide";
             this.bt_Divide.Size = new System.Drawing.Size(50, 50);
             this.bt_Divide.TabIndex = 21;
@@ -281,9 +286,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(391, 353);
+            this.ClientSize = new System.Drawing.Size(237, 328);
             this.Controls.Add(this.bt_Divide);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbl_CurrentCurrency);
             this.Controls.Add(this.bt_Comma);
             this.Controls.Add(this.bt_Clear);
             this.Controls.Add(this.tb_Input);
@@ -331,7 +336,7 @@
         private System.Windows.Forms.TextBox tb_Input;
         private System.Windows.Forms.Button bt_Clear;
         private System.Windows.Forms.Button bt_Comma;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_CurrentCurrency;
         private System.Windows.Forms.Button bt_Divide;
     }
 }

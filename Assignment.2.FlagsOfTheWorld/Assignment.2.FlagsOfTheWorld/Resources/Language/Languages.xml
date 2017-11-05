@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<language>
+  <German>
+    <StartButton></StartButton>
+    <InfoText></InfoText>
+  </German>
+  <Dutch>
+    <StartButton>Starten</StartButton>
+    <InfoText>Wanneer u op starten klikt zal het spel beginnen. Het doel is om binnen 15 minuten zoveel mogelijk juiste namen bij vlaggen te benoemen. De antwoorden zijn niet hoofdletter gevoelig.</InfoText>
+  </Dutch>
+  <French>
+    <StartButton></StartButton>
+    <InfoText></InfoText>
+  </French>
+</language>

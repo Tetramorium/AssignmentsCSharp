@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Assignment._2.FlagsOfTheWorld.MenuItem
+namespace Assignment._2.FlagsOfTheWorld.View.MenuItem
 {
     public partial class MainMenu : UserControl
     {

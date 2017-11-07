@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(App));
-            this.mainMenu1 = new Assignment._2.FlagsOfTheWorld.MenuItem.MainMenu();
+            this.mainMenu1 = new Assignment._2.FlagsOfTheWorld.View.MenuItem.MainMenu();
             this.SuspendLayout();
             // 
             // mainMenu1
@@ -54,7 +54,7 @@
 
         #endregion
 
-        private MenuItem.MainMenu mainMenu1;
+        private View.MenuItem.MainMenu mainMenu1;
     }
 }
 

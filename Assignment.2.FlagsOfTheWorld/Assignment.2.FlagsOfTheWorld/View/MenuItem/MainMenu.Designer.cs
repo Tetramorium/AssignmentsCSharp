@@ -1,4 +1,4 @@
-﻿namespace Assignment._2.FlagsOfTheWorld.MenuItem
+﻿namespace Assignment._2.FlagsOfTheWorld.View.MenuItem
 {
     partial class MainMenu
     {

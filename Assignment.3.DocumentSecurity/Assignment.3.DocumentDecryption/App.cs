@@ -12,36 +12,38 @@ using System.Windows.Forms;
 
 namespace Assignment._3.DocumentDecryption
 {
-    public partial class Form1 : Form
+    public partial class App : Form
     {
-        public Form1()
+        public App()
         {
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DialogResult result = openFileDialog1.ShowDialog();
-
-            if (result == DialogResult.OK)
+            if (textBox1.Text.Trim() != "")
             {
-                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                DialogResult result = openFileDialog1.ShowDialog();
+
+                if (result == DialogResult.OK)
                 {
-                    string file = openFileDialog1.FileName;
-                    try
+                    if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                     {
-                        string text = File.ReadAllText(file);
-
-                        using (StreamWriter sw = new StreamWriter(saveFileDialog1.FileName))
+                        string file = openFileDialog1.FileName;
+                        try
                         {
-                            sw.Write(DecryptString(text, this.textBox1.Text));
-                            sw.Flush();
-                            sw.Close();
-                        }
+                            string text = File.ReadAllText(file);
 
-                    }
-                    catch (IOException)
-                    {
+                            using (StreamWriter sw = new StreamWriter(saveFileDialog1.FileName))
+                            {
+                                sw.Write(DecryptString(text, this.textBox1.Text));
+                                sw.Flush();
+                                sw.Close();
+                            }
+                        }
+                        catch (IOException)
+                        {
+                        }
                     }
                 }
             }

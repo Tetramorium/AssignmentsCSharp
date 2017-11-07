@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Assignment._2.FlagsOfTheWorld.View;
 
 namespace Assignment._2.FlagsOfTheWorld
 {

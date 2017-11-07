@@ -1,15 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <language>
   <German>
-    <StartButton></StartButton>
-    <InfoText></InfoText>
+    <StartButton>Jetzt Starten</StartButton>
+    <InfoText_MainMenu>Versuchen Sie so viele Länder wie möglich mit den Flaggen zu benennen. Drei falsche Antworten haben dich verloren und du wirst deine Punktzahl sehen.</InfoText_MainMenu>
+    <InfoText_GameMenu></InfoText_GameMenu>
+    <NextButton>Weiter</NextButton>
+    <WrongAnswer>Nein nein nein! Das ist nicht gut! Es ist {0}!</WrongAnswer>
+    <LabelCountriesRemaining>Verbleibende Länder:</LabelCountriesRemaining>
+    <GameOver>Spiel ist aus! Erreichte Punkte: {0}</GameOver>
   </German>
   <Dutch>
     <StartButton>Starten</StartButton>
-    <InfoText>Wanneer u op starten klikt zal het spel beginnen. Het doel is om binnen 15 minuten zoveel mogelijk juiste namen bij vlaggen te benoemen. De antwoorden zijn niet hoofdletter gevoelig.</InfoText>
+    <InfoText_MainMenu>Probeer zoveel mogelijk landen te benoemen bij de vlaggen. Bij drie foute antwoorden heb je verloren en krijg je je score te zien.</InfoText_MainMenu>
+    <InfoText_GameMenu></InfoText_GameMenu>
+    <NextButton>Volgende</NextButton>
+    <WrongAnswer>Nee, dat is verkeerd! Het juiste antwoord is {0}.</WrongAnswer>
+    <LabelCountriesRemaining>Landen resterend:</LabelCountriesRemaining>
+    <GameOver>Game Over! Behaalde score: {0}</GameOver>
   </Dutch>
   <French>
-    <StartButton></StartButton>
-    <InfoText></InfoText>
+    <StartButton>Début</StartButton>
+    <InfoText_MainMenu>Essayez de nommer autant de pays que possible avec les drapeaux. Trois mauvaises réponses vous ont perdu et vous verrez votre score.</InfoText_MainMenu>
+    <InfoText_GameMenu></InfoText_GameMenu>
+    <NextButton>Suivante</NextButton>
+    <WrongAnswer>Non, c'est faux! La bonne réponse est {0}.</WrongAnswer>
+    <LabelCountriesRemaining>Pays restants:</LabelCountriesRemaining>
+    <GameOver>Jeu terminé! Points obtenus: {0}</GameOver>
   </French>
 </language>

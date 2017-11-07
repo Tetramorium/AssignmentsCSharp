@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.rtb_GameInfo = new System.Windows.Forms.RichTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,7 +43,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.panel1.Controls.Add(this.richTextBox1);
+            this.panel1.Controls.Add(this.rtb_GameInfo);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
@@ -56,13 +56,13 @@
             this.panel1.Size = new System.Drawing.Size(637, 474);
             this.panel1.TabIndex = 0;
             // 
-            // richTextBox1
+            // rtb_GameInfo
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(74, 250);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(477, 44);
-            this.richTextBox1.TabIndex = 7;
-            this.richTextBox1.Text = "";
+            this.rtb_GameInfo.Location = new System.Drawing.Point(74, 162);
+            this.rtb_GameInfo.Name = "rtb_GameInfo";
+            this.rtb_GameInfo.Size = new System.Drawing.Size(477, 126);
+            this.rtb_GameInfo.TabIndex = 7;
+            this.rtb_GameInfo.Text = "";
             // 
             // label3
             // 
@@ -93,7 +93,7 @@
             // 
             // bt_Start
             // 
-            this.bt_Start.Location = new System.Drawing.Point(248, 300);
+            this.bt_Start.Location = new System.Drawing.Point(251, 324);
             this.bt_Start.Name = "bt_Start";
             this.bt_Start.Size = new System.Drawing.Size(129, 51);
             this.bt_Start.TabIndex = 3;
@@ -110,6 +110,7 @@
             this.bt_French.Size = new System.Drawing.Size(204, 120);
             this.bt_French.TabIndex = 2;
             this.bt_French.UseVisualStyleBackColor = true;
+            this.bt_French.Click += new System.EventHandler(this.bt_French_Click);
             // 
             // bt_German
             // 
@@ -120,6 +121,7 @@
             this.bt_German.Size = new System.Drawing.Size(204, 120);
             this.bt_German.TabIndex = 1;
             this.bt_German.UseVisualStyleBackColor = true;
+            this.bt_German.Click += new System.EventHandler(this.bt_German_Click);
             // 
             // bt_Dutch
             // 
@@ -130,6 +132,7 @@
             this.bt_Dutch.Size = new System.Drawing.Size(204, 120);
             this.bt_Dutch.TabIndex = 0;
             this.bt_Dutch.UseVisualStyleBackColor = true;
+            this.bt_Dutch.Click += new System.EventHandler(this.bt_Dutch_Click);
             // 
             // MainMenu
             // 
@@ -151,7 +154,7 @@
         private System.Windows.Forms.Button bt_German;
         private System.Windows.Forms.Button bt_Dutch;
         private System.Windows.Forms.Button bt_Start;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox rtb_GameInfo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;

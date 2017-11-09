@@ -60,9 +60,9 @@
             // 
             // bt_BackToMenu
             // 
-            this.bt_BackToMenu.Location = new System.Drawing.Point(527, 401);
+            this.bt_BackToMenu.Location = new System.Drawing.Point(431, 401);
             this.bt_BackToMenu.Name = "bt_BackToMenu";
-            this.bt_BackToMenu.Size = new System.Drawing.Size(97, 23);
+            this.bt_BackToMenu.Size = new System.Drawing.Size(193, 23);
             this.bt_BackToMenu.TabIndex = 8;
             this.bt_BackToMenu.Text = "Terug naar menu";
             this.bt_BackToMenu.UseVisualStyleBackColor = true;

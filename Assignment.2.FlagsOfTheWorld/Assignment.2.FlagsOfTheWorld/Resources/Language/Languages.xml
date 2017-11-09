@@ -9,6 +9,7 @@
     <LabelCountriesRemaining>Verbleibende Länder:</LabelCountriesRemaining>
     <GameOver>Spiel ist aus! Erreichte Punkte: {0}</GameOver>
     <returnToMenuButton>Zurück zum Menü</returnToMenuButton>
+    <NoCountriesLeft>Es sind keine Länder mehr übrig! Deine Punktzahl ist {0}!</NoCountriesLeft>
   </German>
   <Dutch>
     <StartButton>Starten</StartButton>
@@ -19,6 +20,7 @@
     <LabelCountriesRemaining>Landen resterend:</LabelCountriesRemaining>
     <GameOver>Game Over! Behaalde score: {0}</GameOver>
     <returnToMenuButton>Terug naar menu</returnToMenuButton>
+    <NoCountriesLeft>Er zijn geen landen meer! Je score is {0}!</NoCountriesLeft>
   </Dutch>
   <French>
     <StartButton>Début</StartButton>
@@ -29,5 +31,6 @@
     <LabelCountriesRemaining>Pays restants:</LabelCountriesRemaining>
     <GameOver>Jeu terminé! Points obtenus: {0}</GameOver>
     <returnToMenuButton>Je me rends</returnToMenuButton>
+    <NoCountriesLeft>Il n'y a plus de pays! Points obtenus: {0}!</NoCountriesLeft>
   </French>
 </language>

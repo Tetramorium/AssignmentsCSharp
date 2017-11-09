@@ -27,6 +27,7 @@ namespace Assignment._2.FlagsOfTheWorld.View.MenuItem
 
         private string wrongAnswerText;
         private string gameOverText;
+        private string noCountriesLeft;
 
         private static Random rng = new Random();
 
@@ -50,6 +51,7 @@ namespace Assignment._2.FlagsOfTheWorld.View.MenuItem
         {
             // Reset all variables
             countriesLeft = World.Count();
+
             this.lbl_CountriesLeft.Text = countriesLeft.ToString();
             this.score = 0;
             this.wrongAnswers = 0;
@@ -147,6 +149,16 @@ namespace Assignment._2.FlagsOfTheWorld.View.MenuItem
             } else
             {
                 this.textBox1.Clear();
+
+                //Check if there are countries left
+                if (countriesLeft == 0)
+                {
+                    MessageBox.Show(string.Format(noCountriesLeft, this.score));
+                    //bubble the event up to the parent
+                    this.GameOver?.Invoke(this, e);
+                    return;
+                }
+
                 showNextFlag();
             }
         }
@@ -175,6 +187,7 @@ namespace Assignment._2.FlagsOfTheWorld.View.MenuItem
 
             this.wrongAnswerText = t.WrongAnswer;
             this.gameOverText = t.GameOver;
+            this.noCountriesLeft = t.NoCountriesLeft;
         }
 
         private void bt_BackToMenu_Click(object sender, EventArgs e)

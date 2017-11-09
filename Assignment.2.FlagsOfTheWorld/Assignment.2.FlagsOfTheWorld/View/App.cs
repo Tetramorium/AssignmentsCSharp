@@ -25,7 +25,8 @@ namespace Assignment._2.FlagsOfTheWorld.View
             this.mainMenu1.GameStarted += MainMenu1_GameStarted;
             this.mainMenu1.LanguageChanged += MainMenu1_LanguageChanged;
 
-            this.gameMenu1.GameOver += GameMenu1_GameOver;
+            this.gameMenu1.GameOver += showGameMenu;
+            this.gameMenu1.BackToMenu += showGameMenu;
 
             App.CurrentLanguage = AppLanguage.Dutch;
             updateLanguage();
@@ -46,7 +47,7 @@ namespace Assignment._2.FlagsOfTheWorld.View
             mainMenu1.UpdateFormLanguage();
         }
 
-        private void GameMenu1_GameOver(object sender, EventArgs e)
+        private void showGameMenu(object sender, EventArgs e)
         {
             this.mainMenu1.Show();
             this.gameMenu1.Hide();

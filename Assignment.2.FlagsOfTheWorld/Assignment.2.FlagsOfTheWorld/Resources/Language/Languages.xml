@@ -8,6 +8,7 @@
     <WrongAnswer>Nein nein nein! Das ist nicht gut! Es ist {0}!</WrongAnswer>
     <LabelCountriesRemaining>Verbleibende Länder:</LabelCountriesRemaining>
     <GameOver>Spiel ist aus! Erreichte Punkte: {0}</GameOver>
+    <returnToMenuButton>Zurück zum Menü</returnToMenuButton>
   </German>
   <Dutch>
     <StartButton>Starten</StartButton>
@@ -17,6 +18,7 @@
     <WrongAnswer>Nee, dat is verkeerd! Het juiste antwoord is {0}.</WrongAnswer>
     <LabelCountriesRemaining>Landen resterend:</LabelCountriesRemaining>
     <GameOver>Game Over! Behaalde score: {0}</GameOver>
+    <returnToMenuButton>Terug naar menu</returnToMenuButton>
   </Dutch>
   <French>
     <StartButton>Début</StartButton>
@@ -26,5 +28,6 @@
     <WrongAnswer>Non, c'est faux! La bonne réponse est {0}.</WrongAnswer>
     <LabelCountriesRemaining>Pays restants:</LabelCountriesRemaining>
     <GameOver>Jeu terminé! Points obtenus: {0}</GameOver>
+    <returnToMenuButton>Je me rends</returnToMenuButton>
   </French>
 </language>

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.bt_BackToMenu = new System.Windows.Forms.Button();
             this.lbl_Region = new System.Windows.Forms.Label();
             this.lbl_Cheat = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -43,6 +44,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.panel1.Controls.Add(this.bt_BackToMenu);
             this.panel1.Controls.Add(this.lbl_Region);
             this.panel1.Controls.Add(this.lbl_Cheat);
             this.panel1.Controls.Add(this.textBox1);
@@ -50,11 +52,21 @@
             this.panel1.Controls.Add(this.lbl_CountriesLeftText);
             this.panel1.Controls.Add(this.bt_Confirm);
             this.panel1.Controls.Add(this.pb_FlagImage);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(637, 474);
+            this.panel1.Size = new System.Drawing.Size(644, 441);
             this.panel1.TabIndex = 1;
+            // 
+            // bt_BackToMenu
+            // 
+            this.bt_BackToMenu.Location = new System.Drawing.Point(527, 401);
+            this.bt_BackToMenu.Name = "bt_BackToMenu";
+            this.bt_BackToMenu.Size = new System.Drawing.Size(97, 23);
+            this.bt_BackToMenu.TabIndex = 8;
+            this.bt_BackToMenu.Text = "Terug naar menu";
+            this.bt_BackToMenu.UseVisualStyleBackColor = true;
+            this.bt_BackToMenu.Click += new System.EventHandler(this.bt_BackToMenu_Click);
             // 
             // lbl_Region
             // 
@@ -127,7 +139,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
             this.Name = "GameMenu";
-            this.Size = new System.Drawing.Size(637, 474);
+            this.Size = new System.Drawing.Size(644, 441);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_FlagImage)).EndInit();
@@ -145,5 +157,6 @@
         private System.Windows.Forms.Label lbl_Cheat;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lbl_Region;
+        private System.Windows.Forms.Button bt_BackToMenu;
     }
 }

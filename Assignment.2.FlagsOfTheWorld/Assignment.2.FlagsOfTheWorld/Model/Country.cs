@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Assignment._2.FlagsOfTheWorld.Model
 {
+    [Serializable]
     public class Country
     {
         [JsonProperty("name")]

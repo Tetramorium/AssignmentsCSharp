@@ -18,7 +18,7 @@ namespace Assignment._2.FlagsOfTheWorld.View.MenuItem
 {
     public partial class GameMenu : UserControl
     {
-
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public List<Country> World { get; set; }
 
         private int countriesLeft;
@@ -31,6 +31,7 @@ namespace Assignment._2.FlagsOfTheWorld.View.MenuItem
         private static Random rng = new Random();
 
         public event EventHandler GameOver;
+        public event EventHandler BackToMenu;
 
         public GameMenu()
         {
@@ -38,6 +39,7 @@ namespace Assignment._2.FlagsOfTheWorld.View.MenuItem
 
             using (HttpClient httpClient = new HttpClient())
             {
+                // Get all countries remotely and deserialize them into a list
                 var message = httpClient.GetAsync("https://restcountries.eu/rest/v2/all");
                 Task<string> content = message.Result.Content.ReadAsStringAsync();
                 World = JsonConvert.DeserializeObject<List<Country>>(content.Result);
@@ -56,7 +58,7 @@ namespace Assignment._2.FlagsOfTheWorld.View.MenuItem
             showNextFlag();
         }
 
-        private void draw(int index)
+        private void DrawFlag(int index)
         {
             using (HttpClient httpClient = new HttpClient())
             {
@@ -105,7 +107,7 @@ namespace Assignment._2.FlagsOfTheWorld.View.MenuItem
             this.lbl_Region.Text = World[World.Count - 1].Region;
 
             // Draw the flag in the PictureBox
-            draw(World.Count - 1);
+            DrawFlag(World.Count - 1);
         }
 
         private void bt_Confirm_Click(object sender, EventArgs e)
@@ -138,10 +140,10 @@ namespace Assignment._2.FlagsOfTheWorld.View.MenuItem
             if(wrongAnswers == 3)
             {
                 MessageBox.Show(string.Format(gameOverText, this.score));
-                
+
                 //bubble the event up to the parent
-                if (this.GameOver != null)
-                    this.GameOver(this, e);
+                this.GameOver?.Invoke(this, e);
+
             } else
             {
                 this.textBox1.Clear();
@@ -169,9 +171,16 @@ namespace Assignment._2.FlagsOfTheWorld.View.MenuItem
         {
             this.bt_Confirm.Text = t.NextButton;
             this.lbl_CountriesLeftText.Text = t.LabelCountriesRemaining;
+            this.bt_BackToMenu.Text = t.returnToMenuButton;
 
             this.wrongAnswerText = t.WrongAnswer;
             this.gameOverText = t.GameOver;
+        }
+
+        private void bt_BackToMenu_Click(object sender, EventArgs e)
+        {
+            //bubble the event up to the parent
+            this.BackToMenu?.Invoke(this, e);
         }
     }
 }

@@ -26,6 +26,7 @@ namespace Assignment._2.FlagsOfTheWorld.Model
         public string WrongAnswer { get; set; }
         public string LabelCountriesRemaining { get; set; }
         public string GameOver { get; set; }
+        public string returnToMenuButton { get; set; }
     }
 
     public class Dutch : translationText

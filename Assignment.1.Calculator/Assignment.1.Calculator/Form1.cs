@@ -47,6 +47,9 @@ namespace Assignment._1.Calculator
 
         private void AddToInput(string toAdd)
         {
+            // Check if text is 0 or an operator was clicked
+            // if true replace value else add to value
+
             if (this.tb_Input.Text == "0" || operatorIsClicked)
             {
                 oldNumber = double.Parse(this.tb_Input.Text);
@@ -59,6 +62,7 @@ namespace Assignment._1.Calculator
 
         private void bt_Clear_Click(object sender, EventArgs e)
         {
+            // Clear values CE
             this.tb_Input.Text = "0";
             clearInput();
         }
@@ -71,6 +75,7 @@ namespace Assignment._1.Calculator
 
         private void bt_Comma_Click(object sender, EventArgs e)
         {
+            // if value already is a double don't add ignore ,
             if (!isDouble)
             {
                 AddToInput(",");
@@ -117,7 +122,6 @@ namespace Assignment._1.Calculator
             }
 
             this.tb_Input.Text = Math.Round(result, 6).ToString();
-
             operatorIsClicked = true;
             currentOperation = Operations.nothing;
         }

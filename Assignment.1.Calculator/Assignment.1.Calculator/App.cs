@@ -13,7 +13,7 @@ using System.Threading;
 
 namespace Assignment._1.Calculator
 {
-    public partial class Form1 : Form
+    public partial class App : Form
     {
 
         private bool isDouble;
@@ -37,7 +37,7 @@ namespace Assignment._1.Calculator
             nothing
         };
 
-        public Form1()
+        public App()
         {
             InitializeComponent();
 
@@ -109,7 +109,7 @@ namespace Assignment._1.Calculator
                     else
                     {
                         Panel p = new Panel();
-                        p.BackgroundImage = new Bitmap("oops.jpg");
+                        p.BackgroundImage = new Bitmap(Properties.Resources.oops);
                         p.Dock = DockStyle.Fill;
                         this.Controls.Add(p);
                         p.BringToFront();
@@ -155,6 +155,7 @@ namespace Assignment._1.Calculator
                 catch
                 {
                     MessageBox.Show("Currency convertor API is currently unavailable.");
+                    return;
                 }
             }
             if (currentCurrencyValue.Rates != null)
@@ -183,6 +184,7 @@ namespace Assignment._1.Calculator
             }
         }
 
+        // To deserialize results into a .NET object https://www.newtonsoft.com/json is used
         public void UpdateCurrencyRates()
         {
             using (HttpClient httpClient = new HttpClient())

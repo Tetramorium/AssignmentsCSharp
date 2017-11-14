@@ -1,6 +1,6 @@
 ﻿namespace Assignment._1.Calculator
 {
-    partial class Form1
+    partial class App
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(App));
             this.bt_1 = new System.Windows.Forms.Button();
             this.bt_2 = new System.Windows.Forms.Button();
             this.bt_3 = new System.Windows.Forms.Button();
@@ -282,7 +283,7 @@
             this.bt_Divide.UseVisualStyleBackColor = true;
             this.bt_Divide.Click += new System.EventHandler(this.bt_Divide_Click);
             // 
-            // Form1
+            // App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -308,8 +309,11 @@
             this.Controls.Add(this.bt_3);
             this.Controls.Add(this.bt_2);
             this.Controls.Add(this.bt_1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.Name = "App";
+            this.Text = "Calculator";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -194,7 +194,7 @@
             this.bt_Clear.Name = "bt_Clear";
             this.bt_Clear.Size = new System.Drawing.Size(50, 50);
             this.bt_Clear.TabIndex = 13;
-            this.bt_Clear.Text = "Ce";
+            this.bt_Clear.Text = "C";
             this.bt_Clear.UseVisualStyleBackColor = true;
             this.bt_Clear.Click += new System.EventHandler(this.bt_Clear_Click);
             // 
@@ -226,6 +226,8 @@
             this.Controls.Add(this.bt_RomanI);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "App";
             this.Text = "Roman Calculator";
             this.ResumeLayout(false);

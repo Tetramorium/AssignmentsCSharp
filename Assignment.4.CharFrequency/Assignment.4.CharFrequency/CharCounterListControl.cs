@@ -15,8 +15,6 @@ namespace Assignment._4.CharFrequency
         public CharCounterListControl()
         {
             InitializeComponent();
-
-            this.Hide();
         }
 
         public void Update(List<CharCounter> lcc, string fileName, long timeElapsed)
@@ -26,8 +24,6 @@ namespace Assignment._4.CharFrequency
 
             this.lbl_FileName.Text = fileName;
             this.lbl_Duration.Text = timeElapsed.ToString();
-
-            this.Show();
         }
 
         public void Update(Dictionary<Char, int> lcc, string fileName, long timeElapsed)
@@ -37,8 +33,6 @@ namespace Assignment._4.CharFrequency
 
             this.lbl_FileName.Text = fileName;
             this.lbl_Duration.Text = timeElapsed.ToString();
-
-            this.Show();
         }
     }
 }

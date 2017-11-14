@@ -114,13 +114,13 @@ namespace Assignment._5.RomanCalculator
             switch (currentOperation)
             {
                 case Operations.Add:
-                    currentValue += oldValue;
+                    currentValue = oldValue + currentValue;
                     break;
                 case Operations.Substract:
-                    currentValue -= oldValue;
+                    currentValue = oldValue - currentValue;
                     break;
                 case Operations.Multiply:
-                    currentValue *= oldValue;
+                    currentValue = oldValue * currentValue;
                     break;
                 case Operations.Divide:
                     try

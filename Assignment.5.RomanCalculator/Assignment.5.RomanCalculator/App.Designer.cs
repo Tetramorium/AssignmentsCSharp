@@ -50,7 +50,7 @@
             // bt_RomanI
             // 
             this.bt_RomanI.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_RomanI.Location = new System.Drawing.Point(12, 77);
+            this.bt_RomanI.Location = new System.Drawing.Point(12, 56);
             this.bt_RomanI.Name = "bt_RomanI";
             this.bt_RomanI.Size = new System.Drawing.Size(50, 50);
             this.bt_RomanI.TabIndex = 0;
@@ -61,7 +61,7 @@
             // bt_RomanV
             // 
             this.bt_RomanV.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_RomanV.Location = new System.Drawing.Point(68, 77);
+            this.bt_RomanV.Location = new System.Drawing.Point(68, 56);
             this.bt_RomanV.Name = "bt_RomanV";
             this.bt_RomanV.Size = new System.Drawing.Size(50, 50);
             this.bt_RomanV.TabIndex = 1;
@@ -72,7 +72,7 @@
             // bt_RomanL
             // 
             this.bt_RomanL.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_RomanL.Location = new System.Drawing.Point(12, 133);
+            this.bt_RomanL.Location = new System.Drawing.Point(12, 112);
             this.bt_RomanL.Name = "bt_RomanL";
             this.bt_RomanL.Size = new System.Drawing.Size(50, 50);
             this.bt_RomanL.TabIndex = 2;
@@ -83,7 +83,7 @@
             // bt_RomanX
             // 
             this.bt_RomanX.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_RomanX.Location = new System.Drawing.Point(124, 77);
+            this.bt_RomanX.Location = new System.Drawing.Point(124, 56);
             this.bt_RomanX.Name = "bt_RomanX";
             this.bt_RomanX.Size = new System.Drawing.Size(50, 50);
             this.bt_RomanX.TabIndex = 3;
@@ -94,7 +94,7 @@
             // bt_RomanC
             // 
             this.bt_RomanC.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_RomanC.Location = new System.Drawing.Point(68, 133);
+            this.bt_RomanC.Location = new System.Drawing.Point(68, 112);
             this.bt_RomanC.Name = "bt_RomanC";
             this.bt_RomanC.Size = new System.Drawing.Size(50, 50);
             this.bt_RomanC.TabIndex = 4;
@@ -105,7 +105,7 @@
             // bt_RomanD
             // 
             this.bt_RomanD.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_RomanD.Location = new System.Drawing.Point(124, 133);
+            this.bt_RomanD.Location = new System.Drawing.Point(124, 112);
             this.bt_RomanD.Name = "bt_RomanD";
             this.bt_RomanD.Size = new System.Drawing.Size(50, 50);
             this.bt_RomanD.TabIndex = 5;
@@ -116,7 +116,7 @@
             // bt_RomanM
             // 
             this.bt_RomanM.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_RomanM.Location = new System.Drawing.Point(12, 189);
+            this.bt_RomanM.Location = new System.Drawing.Point(12, 168);
             this.bt_RomanM.Name = "bt_RomanM";
             this.bt_RomanM.Size = new System.Drawing.Size(50, 50);
             this.bt_RomanM.TabIndex = 6;
@@ -135,7 +135,7 @@
             // bt_Add
             // 
             this.bt_Add.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_Add.Location = new System.Drawing.Point(197, 133);
+            this.bt_Add.Location = new System.Drawing.Point(197, 112);
             this.bt_Add.Name = "bt_Add";
             this.bt_Add.Size = new System.Drawing.Size(50, 50);
             this.bt_Add.TabIndex = 8;
@@ -146,7 +146,7 @@
             // bt_Substract
             // 
             this.bt_Substract.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_Substract.Location = new System.Drawing.Point(253, 133);
+            this.bt_Substract.Location = new System.Drawing.Point(253, 112);
             this.bt_Substract.Name = "bt_Substract";
             this.bt_Substract.Size = new System.Drawing.Size(50, 50);
             this.bt_Substract.TabIndex = 9;
@@ -157,7 +157,7 @@
             // bt_Multiply
             // 
             this.bt_Multiply.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_Multiply.Location = new System.Drawing.Point(197, 189);
+            this.bt_Multiply.Location = new System.Drawing.Point(197, 168);
             this.bt_Multiply.Name = "bt_Multiply";
             this.bt_Multiply.Size = new System.Drawing.Size(50, 50);
             this.bt_Multiply.TabIndex = 10;
@@ -168,7 +168,7 @@
             // bt_Divide
             // 
             this.bt_Divide.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_Divide.Location = new System.Drawing.Point(253, 189);
+            this.bt_Divide.Location = new System.Drawing.Point(253, 168);
             this.bt_Divide.Name = "bt_Divide";
             this.bt_Divide.Size = new System.Drawing.Size(50, 50);
             this.bt_Divide.TabIndex = 11;
@@ -179,7 +179,7 @@
             // bt_Result
             // 
             this.bt_Result.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_Result.Location = new System.Drawing.Point(253, 77);
+            this.bt_Result.Location = new System.Drawing.Point(253, 56);
             this.bt_Result.Name = "bt_Result";
             this.bt_Result.Size = new System.Drawing.Size(50, 50);
             this.bt_Result.TabIndex = 12;
@@ -190,7 +190,7 @@
             // bt_Clear
             // 
             this.bt_Clear.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_Clear.Location = new System.Drawing.Point(197, 77);
+            this.bt_Clear.Location = new System.Drawing.Point(197, 56);
             this.bt_Clear.Name = "bt_Clear";
             this.bt_Clear.Size = new System.Drawing.Size(50, 50);
             this.bt_Clear.TabIndex = 13;
@@ -209,7 +209,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(315, 249);
+            this.ClientSize = new System.Drawing.Size(315, 228);
             this.Controls.Add(this.bt_Clear);
             this.Controls.Add(this.bt_Result);
             this.Controls.Add(this.bt_Divide);

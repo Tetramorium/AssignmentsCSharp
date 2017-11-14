@@ -27,7 +27,7 @@ namespace Assignment._5.RomanCalculator
         private Operations currentOperation;
         private int currentValue;
         private int oldValue;
-
+        
         public App()
         {
             InitializeComponent();

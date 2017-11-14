@@ -10,6 +10,6 @@ namespace Assignment._2.FlagsOfTheWorld.Model
     public static class Translation
     {
         public static XmlController<Language> xmlController = new XmlController<Language>();
-        public static Language Language = xmlController.Load("Resources/Language/Languages.xml");
+        public static Language Language = xmlController.Load("Languages.xml");
     }
 }

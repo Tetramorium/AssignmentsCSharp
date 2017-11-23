@@ -57,6 +57,9 @@
     <Compile Include="View\App.Designer.cs">
       <DependentUpon>App.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\CustomControl\DiceButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="View\Partial\GameMenu.cs">
       <SubType>UserControl</SubType>
     </Compile>

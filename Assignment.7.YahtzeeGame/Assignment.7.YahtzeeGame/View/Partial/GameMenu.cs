@@ -17,6 +17,20 @@ namespace Assignment._7.YahtzeeGame.View.Partial
         public static Random rng = new Random();
 
         private List<Bitmap> diceImages;
+        private List<int> currentDiceValues;
+
+        private int rollsRemaining = 3;
+
+        public int RollsRemaining
+        {
+            get { return rollsRemaining; }
+            set
+            {
+                this.lbl_RollsRemaining.Text = value.ToString();
+                rollsRemaining  = value;
+            }
+        }
+
 
         public GameMenu()
         {
@@ -46,13 +60,32 @@ namespace Assignment._7.YahtzeeGame.View.Partial
             diceImages.Add(Properties.Resources._4);
             diceImages.Add(Properties.Resources._5);
             diceImages.Add(Properties.Resources._6);
+
+            currentDiceValues = new List<int>();
+            for (int i = 0; i < 5; i++)
+            {
+                currentDiceValues.Add(0);
+            }
+
+            addClickEventDices();
+            toggleDiceButtons<DiceButton>(false);
+            getRandomDices();
         }
 
-        public void toggleYahtzeeButtons(bool shouldBeEnabled)
+        public void toggleYahtzeeButtons<T>(bool shouldBeEnabled)
         {
             foreach (Control c in this.tableLayoutPanel1.Controls)
             {
-                if (c is YahtzeeButton)
+                if (c is T)
+                    c.Enabled = shouldBeEnabled;
+            }
+        }
+
+        public void toggleDiceButtons<T>(bool shouldBeEnabled)
+        {
+            foreach (Control c in this.Controls)
+            {
+                if (c is T)
                     c.Enabled = shouldBeEnabled;
             }
         }
@@ -71,35 +104,69 @@ namespace Assignment._7.YahtzeeGame.View.Partial
             }
         }
 
-        public void StartGame()
+        public void addClickEventDices()
         {
-            toggleYahtzeeButtons(false);
+            foreach (Control c in this.Controls)
+            {
+                if (c is DiceButton)
+                {
+                    DiceButton db = (DiceButton)c;
+                    c.Click += bt_DiceClick;
+                }
+            }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void StartGame()
         {
-            List<int> a = new List<int>();
+            toggleYahtzeeButtons<YahtzeeButton>(false);
+        }
 
-            for (int i = 1; i < 6; i++)
+        private void bt_DiceClick(object sender, EventArgs e)
+        {
+            DiceButton ytz = (DiceButton)sender;
+            ytz.IsSelected = !ytz.IsSelected;
+        }
+
+        private void getRandomDices()
+        {
+            int temp = 0;
+            foreach (Control c in this.Controls)
             {
-                int c = rng.Next(1, 7);
-                a.Add(c);
+                if (c is DiceButton)
+                {
+                    DiceButton db = (DiceButton)c;
+                    if (!db.IsSelected)
+                    {
+                        int j = rng.Next(1, 7);
+                        this.currentDiceValues[temp] = j;
+                        db.BackgroundImage = diceImages[j - 1];
+                    }              
+                    temp++;
+                }
+            }
+        }
+
+        private void bt_RollDice_Click(object sender, EventArgs e)
+        {
+            getRandomDices();
+            List<int> copy = new List<int>(currentDiceValues);
+            copy.Sort();
+
+            showPotentionalScores(copy);
+
+            this.RollsRemaining--;
+
+            if (rollsRemaining > 0)
+                this.toggleDiceButtons<DiceButton>(true);
+            else
+            {
+                this.toggleDiceButtons<DiceButton>(false);
+                this.bt_RollDice.Enabled = false;
             }
 
-            this.bt_Dice1.BackgroundImage = diceImages[a[0] - 1];
-            this.bt_Dice2.BackgroundImage = diceImages[a[1] - 1];
-            this.bt_Dice3.BackgroundImage = diceImages[a[2] - 1];
-            this.bt_Dice4.BackgroundImage = diceImages[a[3] - 1];
-            this.bt_Dice5.BackgroundImage = diceImages[a[4] - 1];
 
-            a.Sort();
-            foreach(int c in a)
-            {
-                Console.Write(c + " - ");
-            }
-            Console.WriteLine();
+            toggleYahtzeeButtons<YahtzeeButton>(true);
 
-            showPotentionalScores(a);
         }
     }
 }

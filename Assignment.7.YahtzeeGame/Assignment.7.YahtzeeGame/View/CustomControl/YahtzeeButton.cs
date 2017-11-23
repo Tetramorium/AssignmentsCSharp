@@ -29,6 +29,21 @@ namespace Assignment._7.YahtzeeGame.View.CustomControl
 
         public showScore calculateScoreHandler { get; set; }
 
+        //https://stackoverflow.com/questions/14354922/remove-blue-outlining-of-buttons
+
+        public YahtzeeButton()
+        {
+            this.SetStyle(ControlStyles.Selectable, false);
+        }
+
+        protected override bool ShowFocusCues
+        {
+            get
+            {
+                return false;
+            }
+        }
+
         public void calculateScore(List<int> dices)
         {
             if (calculateScoreHandler != null)

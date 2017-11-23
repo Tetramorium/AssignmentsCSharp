@@ -45,7 +45,12 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.bt_RollDice = new System.Windows.Forms.Button();
+            this.bt_Dice5 = new Assignment._7.YahtzeeGame.View.CustomControl.DiceButton();
+            this.bt_Dice4 = new Assignment._7.YahtzeeGame.View.CustomControl.DiceButton();
+            this.bt_Dice3 = new Assignment._7.YahtzeeGame.View.CustomControl.DiceButton();
+            this.bt_Dice2 = new Assignment._7.YahtzeeGame.View.CustomControl.DiceButton();
+            this.bt_Dice1 = new Assignment._7.YahtzeeGame.View.CustomControl.DiceButton();
             this.bt_Yahtzee = new Assignment._7.YahtzeeGame.View.CustomControl.YahtzeeButton();
             this.bt_Chance = new Assignment._7.YahtzeeGame.View.CustomControl.YahtzeeButton();
             this.bt_LargeStraight = new Assignment._7.YahtzeeGame.View.CustomControl.YahtzeeButton();
@@ -59,11 +64,8 @@
             this.bt_Threes = new Assignment._7.YahtzeeGame.View.CustomControl.YahtzeeButton();
             this.bt_Twos = new Assignment._7.YahtzeeGame.View.CustomControl.YahtzeeButton();
             this.bt_Ones = new Assignment._7.YahtzeeGame.View.CustomControl.YahtzeeButton();
-            this.bt_Dice1 = new System.Windows.Forms.Button();
-            this.bt_Dice2 = new System.Windows.Forms.Button();
-            this.bt_Dice3 = new System.Windows.Forms.Button();
-            this.bt_Dice4 = new System.Windows.Forms.Button();
-            this.bt_Dice5 = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
+            this.lbl_RollsRemaining = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -301,21 +303,72 @@
             this.label16.Text = "Total Score";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button1
+            // bt_RollDice
             // 
-            this.button1.Location = new System.Drawing.Point(43, 195);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.bt_RollDice.Location = new System.Drawing.Point(88, 141);
+            this.bt_RollDice.Name = "bt_RollDice";
+            this.bt_RollDice.Size = new System.Drawing.Size(75, 23);
+            this.bt_RollDice.TabIndex = 7;
+            this.bt_RollDice.Text = "Roll";
+            this.bt_RollDice.UseVisualStyleBackColor = true;
+            this.bt_RollDice.Click += new System.EventHandler(this.bt_RollDice_Click);
+            // 
+            // bt_Dice5
+            // 
+            this.bt_Dice5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.bt_Dice5.IsSelected = false;
+            this.bt_Dice5.Location = new System.Drawing.Point(236, 14);
+            this.bt_Dice5.Name = "bt_Dice5";
+            this.bt_Dice5.Size = new System.Drawing.Size(50, 50);
+            this.bt_Dice5.TabIndex = 6;
+            this.bt_Dice5.UseVisualStyleBackColor = true;
+            // 
+            // bt_Dice4
+            // 
+            this.bt_Dice4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.bt_Dice4.IsSelected = false;
+            this.bt_Dice4.Location = new System.Drawing.Point(180, 14);
+            this.bt_Dice4.Name = "bt_Dice4";
+            this.bt_Dice4.Size = new System.Drawing.Size(50, 50);
+            this.bt_Dice4.TabIndex = 5;
+            this.bt_Dice4.UseVisualStyleBackColor = true;
+            // 
+            // bt_Dice3
+            // 
+            this.bt_Dice3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.bt_Dice3.IsSelected = false;
+            this.bt_Dice3.Location = new System.Drawing.Point(124, 14);
+            this.bt_Dice3.Name = "bt_Dice3";
+            this.bt_Dice3.Size = new System.Drawing.Size(50, 50);
+            this.bt_Dice3.TabIndex = 4;
+            this.bt_Dice3.UseVisualStyleBackColor = true;
+            // 
+            // bt_Dice2
+            // 
+            this.bt_Dice2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.bt_Dice2.IsSelected = false;
+            this.bt_Dice2.Location = new System.Drawing.Point(68, 14);
+            this.bt_Dice2.Name = "bt_Dice2";
+            this.bt_Dice2.Size = new System.Drawing.Size(50, 50);
+            this.bt_Dice2.TabIndex = 3;
+            this.bt_Dice2.UseVisualStyleBackColor = true;
+            // 
+            // bt_Dice1
+            // 
+            this.bt_Dice1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.bt_Dice1.IsSelected = false;
+            this.bt_Dice1.Location = new System.Drawing.Point(12, 14);
+            this.bt_Dice1.Name = "bt_Dice1";
+            this.bt_Dice1.Size = new System.Drawing.Size(50, 50);
+            this.bt_Dice1.TabIndex = 2;
+            this.bt_Dice1.UseVisualStyleBackColor = true;
             // 
             // bt_Yahtzee
             // 
             this.bt_Yahtzee.calculateScoreHandler = null;
             this.bt_Yahtzee.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bt_Yahtzee.Enabled = false;
+            this.bt_Yahtzee.ForeColor = System.Drawing.Color.Red;
             this.bt_Yahtzee.isPicked = false;
             this.bt_Yahtzee.Location = new System.Drawing.Point(153, 368);
             this.bt_Yahtzee.Name = "bt_Yahtzee";
@@ -330,6 +383,7 @@
             this.bt_Chance.calculateScoreHandler = null;
             this.bt_Chance.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bt_Chance.Enabled = false;
+            this.bt_Chance.ForeColor = System.Drawing.Color.Red;
             this.bt_Chance.isPicked = false;
             this.bt_Chance.Location = new System.Drawing.Point(153, 342);
             this.bt_Chance.Name = "bt_Chance";
@@ -344,6 +398,7 @@
             this.bt_LargeStraight.calculateScoreHandler = null;
             this.bt_LargeStraight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bt_LargeStraight.Enabled = false;
+            this.bt_LargeStraight.ForeColor = System.Drawing.Color.Red;
             this.bt_LargeStraight.isPicked = false;
             this.bt_LargeStraight.Location = new System.Drawing.Point(153, 316);
             this.bt_LargeStraight.Name = "bt_LargeStraight";
@@ -358,6 +413,7 @@
             this.bt_SmallStraight.calculateScoreHandler = null;
             this.bt_SmallStraight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bt_SmallStraight.Enabled = false;
+            this.bt_SmallStraight.ForeColor = System.Drawing.Color.Red;
             this.bt_SmallStraight.isPicked = false;
             this.bt_SmallStraight.Location = new System.Drawing.Point(153, 290);
             this.bt_SmallStraight.Name = "bt_SmallStraight";
@@ -372,6 +428,7 @@
             this.bt_FullHouse.calculateScoreHandler = null;
             this.bt_FullHouse.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bt_FullHouse.Enabled = false;
+            this.bt_FullHouse.ForeColor = System.Drawing.Color.Red;
             this.bt_FullHouse.isPicked = false;
             this.bt_FullHouse.Location = new System.Drawing.Point(153, 264);
             this.bt_FullHouse.Name = "bt_FullHouse";
@@ -386,6 +443,7 @@
             this.bt_FourOfKind.calculateScoreHandler = null;
             this.bt_FourOfKind.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bt_FourOfKind.Enabled = false;
+            this.bt_FourOfKind.ForeColor = System.Drawing.Color.Red;
             this.bt_FourOfKind.isPicked = false;
             this.bt_FourOfKind.Location = new System.Drawing.Point(153, 238);
             this.bt_FourOfKind.Name = "bt_FourOfKind";
@@ -400,6 +458,7 @@
             this.bt_ThreeOfKind.calculateScoreHandler = null;
             this.bt_ThreeOfKind.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bt_ThreeOfKind.Enabled = false;
+            this.bt_ThreeOfKind.ForeColor = System.Drawing.Color.Red;
             this.bt_ThreeOfKind.isPicked = false;
             this.bt_ThreeOfKind.Location = new System.Drawing.Point(153, 212);
             this.bt_ThreeOfKind.Name = "bt_ThreeOfKind";
@@ -414,6 +473,7 @@
             this.bt_Sixes.calculateScoreHandler = null;
             this.bt_Sixes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bt_Sixes.Enabled = false;
+            this.bt_Sixes.ForeColor = System.Drawing.Color.Red;
             this.bt_Sixes.isPicked = false;
             this.bt_Sixes.Location = new System.Drawing.Point(153, 134);
             this.bt_Sixes.Name = "bt_Sixes";
@@ -428,6 +488,7 @@
             this.bt_Fives.calculateScoreHandler = null;
             this.bt_Fives.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bt_Fives.Enabled = false;
+            this.bt_Fives.ForeColor = System.Drawing.Color.Red;
             this.bt_Fives.isPicked = false;
             this.bt_Fives.Location = new System.Drawing.Point(153, 108);
             this.bt_Fives.Name = "bt_Fives";
@@ -442,6 +503,7 @@
             this.bt_Fours.calculateScoreHandler = null;
             this.bt_Fours.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bt_Fours.Enabled = false;
+            this.bt_Fours.ForeColor = System.Drawing.Color.Red;
             this.bt_Fours.isPicked = false;
             this.bt_Fours.Location = new System.Drawing.Point(153, 82);
             this.bt_Fours.Name = "bt_Fours";
@@ -456,6 +518,7 @@
             this.bt_Threes.calculateScoreHandler = null;
             this.bt_Threes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bt_Threes.Enabled = false;
+            this.bt_Threes.ForeColor = System.Drawing.Color.Red;
             this.bt_Threes.isPicked = false;
             this.bt_Threes.Location = new System.Drawing.Point(153, 56);
             this.bt_Threes.Name = "bt_Threes";
@@ -470,6 +533,7 @@
             this.bt_Twos.calculateScoreHandler = null;
             this.bt_Twos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bt_Twos.Enabled = false;
+            this.bt_Twos.ForeColor = System.Drawing.Color.Red;
             this.bt_Twos.isPicked = false;
             this.bt_Twos.Location = new System.Drawing.Point(153, 30);
             this.bt_Twos.Name = "bt_Twos";
@@ -484,6 +548,7 @@
             this.bt_Ones.calculateScoreHandler = null;
             this.bt_Ones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bt_Ones.Enabled = false;
+            this.bt_Ones.ForeColor = System.Drawing.Color.Red;
             this.bt_Ones.isPicked = false;
             this.bt_Ones.Location = new System.Drawing.Point(153, 4);
             this.bt_Ones.Name = "bt_Ones";
@@ -493,68 +558,44 @@
             this.bt_Ones.Text = "0";
             this.bt_Ones.UseVisualStyleBackColor = true;
             // 
-            // bt_Dice1
+            // label17
             // 
-            this.bt_Dice1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.bt_Dice1.Location = new System.Drawing.Point(12, 14);
-            this.bt_Dice1.Name = "bt_Dice1";
-            this.bt_Dice1.Size = new System.Drawing.Size(50, 50);
-            this.bt_Dice1.TabIndex = 2;
-            this.bt_Dice1.UseVisualStyleBackColor = true;
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(55, 124);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(81, 13);
+            this.label17.TabIndex = 8;
+            this.label17.Text = "Rolls remaining:";
             // 
-            // bt_Dice2
+            // lbl_RollsRemaining
             // 
-            this.bt_Dice2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.bt_Dice2.Location = new System.Drawing.Point(68, 14);
-            this.bt_Dice2.Name = "bt_Dice2";
-            this.bt_Dice2.Size = new System.Drawing.Size(50, 50);
-            this.bt_Dice2.TabIndex = 3;
-            this.bt_Dice2.UseVisualStyleBackColor = true;
-            // 
-            // bt_Dice3
-            // 
-            this.bt_Dice3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.bt_Dice3.Location = new System.Drawing.Point(124, 14);
-            this.bt_Dice3.Name = "bt_Dice3";
-            this.bt_Dice3.Size = new System.Drawing.Size(50, 50);
-            this.bt_Dice3.TabIndex = 4;
-            this.bt_Dice3.UseVisualStyleBackColor = true;
-            // 
-            // bt_Dice4
-            // 
-            this.bt_Dice4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.bt_Dice4.Location = new System.Drawing.Point(180, 14);
-            this.bt_Dice4.Name = "bt_Dice4";
-            this.bt_Dice4.Size = new System.Drawing.Size(50, 50);
-            this.bt_Dice4.TabIndex = 5;
-            this.bt_Dice4.UseVisualStyleBackColor = true;
-            // 
-            // bt_Dice5
-            // 
-            this.bt_Dice5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.bt_Dice5.Location = new System.Drawing.Point(236, 14);
-            this.bt_Dice5.Name = "bt_Dice5";
-            this.bt_Dice5.Size = new System.Drawing.Size(50, 50);
-            this.bt_Dice5.TabIndex = 6;
-            this.bt_Dice5.UseVisualStyleBackColor = true;
+            this.lbl_RollsRemaining.AutoSize = true;
+            this.lbl_RollsRemaining.Location = new System.Drawing.Point(136, 125);
+            this.lbl_RollsRemaining.Name = "lbl_RollsRemaining";
+            this.lbl_RollsRemaining.Size = new System.Drawing.Size(13, 13);
+            this.lbl_RollsRemaining.TabIndex = 9;
+            this.lbl_RollsRemaining.Text = "3";
             // 
             // GameMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.Controls.Add(this.lbl_RollsRemaining);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.bt_RollDice);
             this.Controls.Add(this.bt_Dice5);
             this.Controls.Add(this.bt_Dice4);
             this.Controls.Add(this.bt_Dice3);
             this.Controls.Add(this.bt_Dice2);
             this.Controls.Add(this.bt_Dice1);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "GameMenu";
             this.Size = new System.Drawing.Size(624, 441);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -590,11 +631,13 @@
         private YahtzeeGame.View.CustomControl.YahtzeeButton bt_Fours;
         private YahtzeeGame.View.CustomControl.YahtzeeButton bt_Threes;
         private YahtzeeGame.View.CustomControl.YahtzeeButton bt_Twos;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button bt_Dice1;
-        private System.Windows.Forms.Button bt_Dice2;
-        private System.Windows.Forms.Button bt_Dice3;
-        private System.Windows.Forms.Button bt_Dice4;
-        private System.Windows.Forms.Button bt_Dice5;
+        private YahtzeeGame.View.CustomControl.DiceButton bt_Dice1;
+        private YahtzeeGame.View.CustomControl.DiceButton bt_Dice2;
+        private YahtzeeGame.View.CustomControl.DiceButton bt_Dice3;
+        private YahtzeeGame.View.CustomControl.DiceButton bt_Dice4;
+        private YahtzeeGame.View.CustomControl.DiceButton bt_Dice5;
+        private System.Windows.Forms.Button bt_RollDice;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label lbl_RollsRemaining;
     }
 }

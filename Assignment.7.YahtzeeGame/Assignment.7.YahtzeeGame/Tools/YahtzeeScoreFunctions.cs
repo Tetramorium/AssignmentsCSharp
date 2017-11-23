@@ -82,7 +82,6 @@ namespace Assignment._7.YahtzeeGame.Tools
         public static int calculateFullHouse(List<int> dices)
         {
             int score = 0;
-            dices.Sort();
 
             if (dices[0] == dices[1] && dices[3] == dices[4])
             {

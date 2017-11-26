@@ -29,6 +29,18 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.bt_Yahtzee = new Assignment._7.YahtzeeGame.View.CustomControl.YahtzeeButton();
+            this.bt_Chance = new Assignment._7.YahtzeeGame.View.CustomControl.YahtzeeButton();
+            this.bt_LargeStraight = new Assignment._7.YahtzeeGame.View.CustomControl.YahtzeeButton();
+            this.bt_SmallStraight = new Assignment._7.YahtzeeGame.View.CustomControl.YahtzeeButton();
+            this.bt_FullHouse = new Assignment._7.YahtzeeGame.View.CustomControl.YahtzeeButton();
+            this.bt_FourOfKind = new Assignment._7.YahtzeeGame.View.CustomControl.YahtzeeButton();
+            this.bt_ThreeOfKind = new Assignment._7.YahtzeeGame.View.CustomControl.YahtzeeButton();
+            this.bt_Sixes = new Assignment._7.YahtzeeGame.View.CustomControl.YahtzeeButton();
+            this.bt_Fives = new Assignment._7.YahtzeeGame.View.CustomControl.YahtzeeButton();
+            this.bt_Fours = new Assignment._7.YahtzeeGame.View.CustomControl.YahtzeeButton();
+            this.bt_Threes = new Assignment._7.YahtzeeGame.View.CustomControl.YahtzeeButton();
+            this.bt_Twos = new Assignment._7.YahtzeeGame.View.CustomControl.YahtzeeButton();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,27 +57,17 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.bt_Ones = new Assignment._7.YahtzeeGame.View.CustomControl.YahtzeeButton();
             this.bt_RollDice = new System.Windows.Forms.Button();
             this.bt_Dice5 = new Assignment._7.YahtzeeGame.View.CustomControl.DiceButton();
             this.bt_Dice4 = new Assignment._7.YahtzeeGame.View.CustomControl.DiceButton();
             this.bt_Dice3 = new Assignment._7.YahtzeeGame.View.CustomControl.DiceButton();
             this.bt_Dice2 = new Assignment._7.YahtzeeGame.View.CustomControl.DiceButton();
             this.bt_Dice1 = new Assignment._7.YahtzeeGame.View.CustomControl.DiceButton();
-            this.bt_Yahtzee = new Assignment._7.YahtzeeGame.View.CustomControl.YahtzeeButton();
-            this.bt_Chance = new Assignment._7.YahtzeeGame.View.CustomControl.YahtzeeButton();
-            this.bt_LargeStraight = new Assignment._7.YahtzeeGame.View.CustomControl.YahtzeeButton();
-            this.bt_SmallStraight = new Assignment._7.YahtzeeGame.View.CustomControl.YahtzeeButton();
-            this.bt_FullHouse = new Assignment._7.YahtzeeGame.View.CustomControl.YahtzeeButton();
-            this.bt_FourOfKind = new Assignment._7.YahtzeeGame.View.CustomControl.YahtzeeButton();
-            this.bt_ThreeOfKind = new Assignment._7.YahtzeeGame.View.CustomControl.YahtzeeButton();
-            this.bt_Sixes = new Assignment._7.YahtzeeGame.View.CustomControl.YahtzeeButton();
-            this.bt_Fives = new Assignment._7.YahtzeeGame.View.CustomControl.YahtzeeButton();
-            this.bt_Fours = new Assignment._7.YahtzeeGame.View.CustomControl.YahtzeeButton();
-            this.bt_Threes = new Assignment._7.YahtzeeGame.View.CustomControl.YahtzeeButton();
-            this.bt_Twos = new Assignment._7.YahtzeeGame.View.CustomControl.YahtzeeButton();
-            this.bt_Ones = new Assignment._7.YahtzeeGame.View.CustomControl.YahtzeeButton();
             this.label17 = new System.Windows.Forms.Label();
             this.lbl_RollsRemaining = new System.Windows.Forms.Label();
+            this.lbl_SumSameNumber = new System.Windows.Forms.Label();
+            this.lbl_SameNumberBonus = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -106,6 +108,8 @@
             this.tableLayoutPanel1.Controls.Add(this.label15, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.label16, 0, 15);
             this.tableLayoutPanel1.Controls.Add(this.bt_Ones, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lbl_SumSameNumber, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.lbl_SameNumberBonus, 1, 7);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(314, 10);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 16;
@@ -127,6 +131,186 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(300, 420);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // bt_Yahtzee
+            // 
+            this.bt_Yahtzee.calculateScoreHandler = null;
+            this.bt_Yahtzee.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bt_Yahtzee.Enabled = false;
+            this.bt_Yahtzee.ForeColor = System.Drawing.Color.Red;
+            this.bt_Yahtzee.IsPicked = false;
+            this.bt_Yahtzee.Location = new System.Drawing.Point(153, 368);
+            this.bt_Yahtzee.Name = "bt_Yahtzee";
+            this.bt_Yahtzee.Score = 0;
+            this.bt_Yahtzee.Size = new System.Drawing.Size(143, 19);
+            this.bt_Yahtzee.TabIndex = 30;
+            this.bt_Yahtzee.Text = "0";
+            this.bt_Yahtzee.UseVisualStyleBackColor = true;
+            // 
+            // bt_Chance
+            // 
+            this.bt_Chance.calculateScoreHandler = null;
+            this.bt_Chance.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bt_Chance.Enabled = false;
+            this.bt_Chance.ForeColor = System.Drawing.Color.Red;
+            this.bt_Chance.IsPicked = false;
+            this.bt_Chance.Location = new System.Drawing.Point(153, 342);
+            this.bt_Chance.Name = "bt_Chance";
+            this.bt_Chance.Score = 0;
+            this.bt_Chance.Size = new System.Drawing.Size(143, 19);
+            this.bt_Chance.TabIndex = 29;
+            this.bt_Chance.Text = "0";
+            this.bt_Chance.UseVisualStyleBackColor = true;
+            // 
+            // bt_LargeStraight
+            // 
+            this.bt_LargeStraight.calculateScoreHandler = null;
+            this.bt_LargeStraight.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bt_LargeStraight.Enabled = false;
+            this.bt_LargeStraight.ForeColor = System.Drawing.Color.Red;
+            this.bt_LargeStraight.IsPicked = false;
+            this.bt_LargeStraight.Location = new System.Drawing.Point(153, 316);
+            this.bt_LargeStraight.Name = "bt_LargeStraight";
+            this.bt_LargeStraight.Score = 0;
+            this.bt_LargeStraight.Size = new System.Drawing.Size(143, 19);
+            this.bt_LargeStraight.TabIndex = 28;
+            this.bt_LargeStraight.Text = "0";
+            this.bt_LargeStraight.UseVisualStyleBackColor = true;
+            // 
+            // bt_SmallStraight
+            // 
+            this.bt_SmallStraight.calculateScoreHandler = null;
+            this.bt_SmallStraight.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bt_SmallStraight.Enabled = false;
+            this.bt_SmallStraight.ForeColor = System.Drawing.Color.Red;
+            this.bt_SmallStraight.IsPicked = false;
+            this.bt_SmallStraight.Location = new System.Drawing.Point(153, 290);
+            this.bt_SmallStraight.Name = "bt_SmallStraight";
+            this.bt_SmallStraight.Score = 0;
+            this.bt_SmallStraight.Size = new System.Drawing.Size(143, 19);
+            this.bt_SmallStraight.TabIndex = 27;
+            this.bt_SmallStraight.Text = "0";
+            this.bt_SmallStraight.UseVisualStyleBackColor = true;
+            // 
+            // bt_FullHouse
+            // 
+            this.bt_FullHouse.calculateScoreHandler = null;
+            this.bt_FullHouse.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bt_FullHouse.Enabled = false;
+            this.bt_FullHouse.ForeColor = System.Drawing.Color.Red;
+            this.bt_FullHouse.IsPicked = false;
+            this.bt_FullHouse.Location = new System.Drawing.Point(153, 264);
+            this.bt_FullHouse.Name = "bt_FullHouse";
+            this.bt_FullHouse.Score = 0;
+            this.bt_FullHouse.Size = new System.Drawing.Size(143, 19);
+            this.bt_FullHouse.TabIndex = 26;
+            this.bt_FullHouse.Text = "0";
+            this.bt_FullHouse.UseVisualStyleBackColor = true;
+            // 
+            // bt_FourOfKind
+            // 
+            this.bt_FourOfKind.calculateScoreHandler = null;
+            this.bt_FourOfKind.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bt_FourOfKind.Enabled = false;
+            this.bt_FourOfKind.ForeColor = System.Drawing.Color.Red;
+            this.bt_FourOfKind.IsPicked = false;
+            this.bt_FourOfKind.Location = new System.Drawing.Point(153, 238);
+            this.bt_FourOfKind.Name = "bt_FourOfKind";
+            this.bt_FourOfKind.Score = 0;
+            this.bt_FourOfKind.Size = new System.Drawing.Size(143, 19);
+            this.bt_FourOfKind.TabIndex = 25;
+            this.bt_FourOfKind.Text = "0";
+            this.bt_FourOfKind.UseVisualStyleBackColor = true;
+            // 
+            // bt_ThreeOfKind
+            // 
+            this.bt_ThreeOfKind.calculateScoreHandler = null;
+            this.bt_ThreeOfKind.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bt_ThreeOfKind.Enabled = false;
+            this.bt_ThreeOfKind.ForeColor = System.Drawing.Color.Red;
+            this.bt_ThreeOfKind.IsPicked = false;
+            this.bt_ThreeOfKind.Location = new System.Drawing.Point(153, 212);
+            this.bt_ThreeOfKind.Name = "bt_ThreeOfKind";
+            this.bt_ThreeOfKind.Score = 0;
+            this.bt_ThreeOfKind.Size = new System.Drawing.Size(143, 19);
+            this.bt_ThreeOfKind.TabIndex = 24;
+            this.bt_ThreeOfKind.Text = "0";
+            this.bt_ThreeOfKind.UseVisualStyleBackColor = true;
+            // 
+            // bt_Sixes
+            // 
+            this.bt_Sixes.calculateScoreHandler = null;
+            this.bt_Sixes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bt_Sixes.Enabled = false;
+            this.bt_Sixes.ForeColor = System.Drawing.Color.Red;
+            this.bt_Sixes.IsPicked = false;
+            this.bt_Sixes.Location = new System.Drawing.Point(153, 134);
+            this.bt_Sixes.Name = "bt_Sixes";
+            this.bt_Sixes.Score = 0;
+            this.bt_Sixes.Size = new System.Drawing.Size(143, 19);
+            this.bt_Sixes.TabIndex = 21;
+            this.bt_Sixes.Text = "0";
+            this.bt_Sixes.UseVisualStyleBackColor = true;
+            // 
+            // bt_Fives
+            // 
+            this.bt_Fives.calculateScoreHandler = null;
+            this.bt_Fives.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bt_Fives.Enabled = false;
+            this.bt_Fives.ForeColor = System.Drawing.Color.Red;
+            this.bt_Fives.IsPicked = false;
+            this.bt_Fives.Location = new System.Drawing.Point(153, 108);
+            this.bt_Fives.Name = "bt_Fives";
+            this.bt_Fives.Score = 0;
+            this.bt_Fives.Size = new System.Drawing.Size(143, 19);
+            this.bt_Fives.TabIndex = 20;
+            this.bt_Fives.Text = "0";
+            this.bt_Fives.UseVisualStyleBackColor = true;
+            // 
+            // bt_Fours
+            // 
+            this.bt_Fours.calculateScoreHandler = null;
+            this.bt_Fours.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bt_Fours.Enabled = false;
+            this.bt_Fours.ForeColor = System.Drawing.Color.Red;
+            this.bt_Fours.IsPicked = false;
+            this.bt_Fours.Location = new System.Drawing.Point(153, 82);
+            this.bt_Fours.Name = "bt_Fours";
+            this.bt_Fours.Score = 0;
+            this.bt_Fours.Size = new System.Drawing.Size(143, 19);
+            this.bt_Fours.TabIndex = 19;
+            this.bt_Fours.Text = "0";
+            this.bt_Fours.UseVisualStyleBackColor = true;
+            // 
+            // bt_Threes
+            // 
+            this.bt_Threes.calculateScoreHandler = null;
+            this.bt_Threes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bt_Threes.Enabled = false;
+            this.bt_Threes.ForeColor = System.Drawing.Color.Red;
+            this.bt_Threes.IsPicked = false;
+            this.bt_Threes.Location = new System.Drawing.Point(153, 56);
+            this.bt_Threes.Name = "bt_Threes";
+            this.bt_Threes.Score = 0;
+            this.bt_Threes.Size = new System.Drawing.Size(143, 19);
+            this.bt_Threes.TabIndex = 18;
+            this.bt_Threes.Text = "0";
+            this.bt_Threes.UseVisualStyleBackColor = true;
+            // 
+            // bt_Twos
+            // 
+            this.bt_Twos.calculateScoreHandler = null;
+            this.bt_Twos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bt_Twos.Enabled = false;
+            this.bt_Twos.ForeColor = System.Drawing.Color.Red;
+            this.bt_Twos.IsPicked = false;
+            this.bt_Twos.Location = new System.Drawing.Point(153, 30);
+            this.bt_Twos.Name = "bt_Twos";
+            this.bt_Twos.Score = 0;
+            this.bt_Twos.Size = new System.Drawing.Size(143, 19);
+            this.bt_Twos.TabIndex = 17;
+            this.bt_Twos.Text = "0";
+            this.bt_Twos.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -303,6 +487,21 @@
             this.label16.Text = "Total Score";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // bt_Ones
+            // 
+            this.bt_Ones.calculateScoreHandler = null;
+            this.bt_Ones.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bt_Ones.Enabled = false;
+            this.bt_Ones.ForeColor = System.Drawing.Color.Red;
+            this.bt_Ones.IsPicked = false;
+            this.bt_Ones.Location = new System.Drawing.Point(153, 4);
+            this.bt_Ones.Name = "bt_Ones";
+            this.bt_Ones.Score = 0;
+            this.bt_Ones.Size = new System.Drawing.Size(143, 19);
+            this.bt_Ones.TabIndex = 16;
+            this.bt_Ones.Text = "0";
+            this.bt_Ones.UseVisualStyleBackColor = true;
+            // 
             // bt_RollDice
             // 
             this.bt_RollDice.Location = new System.Drawing.Point(88, 141);
@@ -322,6 +521,7 @@
             this.bt_Dice5.Size = new System.Drawing.Size(50, 50);
             this.bt_Dice5.TabIndex = 6;
             this.bt_Dice5.UseVisualStyleBackColor = true;
+            this.bt_Dice5.Value = 0;
             // 
             // bt_Dice4
             // 
@@ -332,6 +532,7 @@
             this.bt_Dice4.Size = new System.Drawing.Size(50, 50);
             this.bt_Dice4.TabIndex = 5;
             this.bt_Dice4.UseVisualStyleBackColor = true;
+            this.bt_Dice4.Value = 0;
             // 
             // bt_Dice3
             // 
@@ -342,6 +543,7 @@
             this.bt_Dice3.Size = new System.Drawing.Size(50, 50);
             this.bt_Dice3.TabIndex = 4;
             this.bt_Dice3.UseVisualStyleBackColor = true;
+            this.bt_Dice3.Value = 0;
             // 
             // bt_Dice2
             // 
@@ -352,6 +554,7 @@
             this.bt_Dice2.Size = new System.Drawing.Size(50, 50);
             this.bt_Dice2.TabIndex = 3;
             this.bt_Dice2.UseVisualStyleBackColor = true;
+            this.bt_Dice2.Value = 0;
             // 
             // bt_Dice1
             // 
@@ -362,201 +565,7 @@
             this.bt_Dice1.Size = new System.Drawing.Size(50, 50);
             this.bt_Dice1.TabIndex = 2;
             this.bt_Dice1.UseVisualStyleBackColor = true;
-            // 
-            // bt_Yahtzee
-            // 
-            this.bt_Yahtzee.calculateScoreHandler = null;
-            this.bt_Yahtzee.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bt_Yahtzee.Enabled = false;
-            this.bt_Yahtzee.ForeColor = System.Drawing.Color.Red;
-            this.bt_Yahtzee.isPicked = false;
-            this.bt_Yahtzee.Location = new System.Drawing.Point(153, 368);
-            this.bt_Yahtzee.Name = "bt_Yahtzee";
-            this.bt_Yahtzee.Score = 0;
-            this.bt_Yahtzee.Size = new System.Drawing.Size(143, 19);
-            this.bt_Yahtzee.TabIndex = 30;
-            this.bt_Yahtzee.Text = "0";
-            this.bt_Yahtzee.UseVisualStyleBackColor = true;
-            // 
-            // bt_Chance
-            // 
-            this.bt_Chance.calculateScoreHandler = null;
-            this.bt_Chance.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bt_Chance.Enabled = false;
-            this.bt_Chance.ForeColor = System.Drawing.Color.Red;
-            this.bt_Chance.isPicked = false;
-            this.bt_Chance.Location = new System.Drawing.Point(153, 342);
-            this.bt_Chance.Name = "bt_Chance";
-            this.bt_Chance.Score = 0;
-            this.bt_Chance.Size = new System.Drawing.Size(143, 19);
-            this.bt_Chance.TabIndex = 29;
-            this.bt_Chance.Text = "0";
-            this.bt_Chance.UseVisualStyleBackColor = true;
-            // 
-            // bt_LargeStraight
-            // 
-            this.bt_LargeStraight.calculateScoreHandler = null;
-            this.bt_LargeStraight.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bt_LargeStraight.Enabled = false;
-            this.bt_LargeStraight.ForeColor = System.Drawing.Color.Red;
-            this.bt_LargeStraight.isPicked = false;
-            this.bt_LargeStraight.Location = new System.Drawing.Point(153, 316);
-            this.bt_LargeStraight.Name = "bt_LargeStraight";
-            this.bt_LargeStraight.Score = 0;
-            this.bt_LargeStraight.Size = new System.Drawing.Size(143, 19);
-            this.bt_LargeStraight.TabIndex = 28;
-            this.bt_LargeStraight.Text = "0";
-            this.bt_LargeStraight.UseVisualStyleBackColor = true;
-            // 
-            // bt_SmallStraight
-            // 
-            this.bt_SmallStraight.calculateScoreHandler = null;
-            this.bt_SmallStraight.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bt_SmallStraight.Enabled = false;
-            this.bt_SmallStraight.ForeColor = System.Drawing.Color.Red;
-            this.bt_SmallStraight.isPicked = false;
-            this.bt_SmallStraight.Location = new System.Drawing.Point(153, 290);
-            this.bt_SmallStraight.Name = "bt_SmallStraight";
-            this.bt_SmallStraight.Score = 0;
-            this.bt_SmallStraight.Size = new System.Drawing.Size(143, 19);
-            this.bt_SmallStraight.TabIndex = 27;
-            this.bt_SmallStraight.Text = "0";
-            this.bt_SmallStraight.UseVisualStyleBackColor = true;
-            // 
-            // bt_FullHouse
-            // 
-            this.bt_FullHouse.calculateScoreHandler = null;
-            this.bt_FullHouse.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bt_FullHouse.Enabled = false;
-            this.bt_FullHouse.ForeColor = System.Drawing.Color.Red;
-            this.bt_FullHouse.isPicked = false;
-            this.bt_FullHouse.Location = new System.Drawing.Point(153, 264);
-            this.bt_FullHouse.Name = "bt_FullHouse";
-            this.bt_FullHouse.Score = 0;
-            this.bt_FullHouse.Size = new System.Drawing.Size(143, 19);
-            this.bt_FullHouse.TabIndex = 26;
-            this.bt_FullHouse.Text = "0";
-            this.bt_FullHouse.UseVisualStyleBackColor = true;
-            // 
-            // bt_FourOfKind
-            // 
-            this.bt_FourOfKind.calculateScoreHandler = null;
-            this.bt_FourOfKind.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bt_FourOfKind.Enabled = false;
-            this.bt_FourOfKind.ForeColor = System.Drawing.Color.Red;
-            this.bt_FourOfKind.isPicked = false;
-            this.bt_FourOfKind.Location = new System.Drawing.Point(153, 238);
-            this.bt_FourOfKind.Name = "bt_FourOfKind";
-            this.bt_FourOfKind.Score = 0;
-            this.bt_FourOfKind.Size = new System.Drawing.Size(143, 19);
-            this.bt_FourOfKind.TabIndex = 25;
-            this.bt_FourOfKind.Text = "0";
-            this.bt_FourOfKind.UseVisualStyleBackColor = true;
-            // 
-            // bt_ThreeOfKind
-            // 
-            this.bt_ThreeOfKind.calculateScoreHandler = null;
-            this.bt_ThreeOfKind.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bt_ThreeOfKind.Enabled = false;
-            this.bt_ThreeOfKind.ForeColor = System.Drawing.Color.Red;
-            this.bt_ThreeOfKind.isPicked = false;
-            this.bt_ThreeOfKind.Location = new System.Drawing.Point(153, 212);
-            this.bt_ThreeOfKind.Name = "bt_ThreeOfKind";
-            this.bt_ThreeOfKind.Score = 0;
-            this.bt_ThreeOfKind.Size = new System.Drawing.Size(143, 19);
-            this.bt_ThreeOfKind.TabIndex = 24;
-            this.bt_ThreeOfKind.Text = "0";
-            this.bt_ThreeOfKind.UseVisualStyleBackColor = true;
-            // 
-            // bt_Sixes
-            // 
-            this.bt_Sixes.calculateScoreHandler = null;
-            this.bt_Sixes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bt_Sixes.Enabled = false;
-            this.bt_Sixes.ForeColor = System.Drawing.Color.Red;
-            this.bt_Sixes.isPicked = false;
-            this.bt_Sixes.Location = new System.Drawing.Point(153, 134);
-            this.bt_Sixes.Name = "bt_Sixes";
-            this.bt_Sixes.Score = 0;
-            this.bt_Sixes.Size = new System.Drawing.Size(143, 19);
-            this.bt_Sixes.TabIndex = 21;
-            this.bt_Sixes.Text = "0";
-            this.bt_Sixes.UseVisualStyleBackColor = true;
-            // 
-            // bt_Fives
-            // 
-            this.bt_Fives.calculateScoreHandler = null;
-            this.bt_Fives.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bt_Fives.Enabled = false;
-            this.bt_Fives.ForeColor = System.Drawing.Color.Red;
-            this.bt_Fives.isPicked = false;
-            this.bt_Fives.Location = new System.Drawing.Point(153, 108);
-            this.bt_Fives.Name = "bt_Fives";
-            this.bt_Fives.Score = 0;
-            this.bt_Fives.Size = new System.Drawing.Size(143, 19);
-            this.bt_Fives.TabIndex = 20;
-            this.bt_Fives.Text = "0";
-            this.bt_Fives.UseVisualStyleBackColor = true;
-            // 
-            // bt_Fours
-            // 
-            this.bt_Fours.calculateScoreHandler = null;
-            this.bt_Fours.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bt_Fours.Enabled = false;
-            this.bt_Fours.ForeColor = System.Drawing.Color.Red;
-            this.bt_Fours.isPicked = false;
-            this.bt_Fours.Location = new System.Drawing.Point(153, 82);
-            this.bt_Fours.Name = "bt_Fours";
-            this.bt_Fours.Score = 0;
-            this.bt_Fours.Size = new System.Drawing.Size(143, 19);
-            this.bt_Fours.TabIndex = 19;
-            this.bt_Fours.Text = "0";
-            this.bt_Fours.UseVisualStyleBackColor = true;
-            // 
-            // bt_Threes
-            // 
-            this.bt_Threes.calculateScoreHandler = null;
-            this.bt_Threes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bt_Threes.Enabled = false;
-            this.bt_Threes.ForeColor = System.Drawing.Color.Red;
-            this.bt_Threes.isPicked = false;
-            this.bt_Threes.Location = new System.Drawing.Point(153, 56);
-            this.bt_Threes.Name = "bt_Threes";
-            this.bt_Threes.Score = 0;
-            this.bt_Threes.Size = new System.Drawing.Size(143, 19);
-            this.bt_Threes.TabIndex = 18;
-            this.bt_Threes.Text = "0";
-            this.bt_Threes.UseVisualStyleBackColor = true;
-            // 
-            // bt_Twos
-            // 
-            this.bt_Twos.calculateScoreHandler = null;
-            this.bt_Twos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bt_Twos.Enabled = false;
-            this.bt_Twos.ForeColor = System.Drawing.Color.Red;
-            this.bt_Twos.isPicked = false;
-            this.bt_Twos.Location = new System.Drawing.Point(153, 30);
-            this.bt_Twos.Name = "bt_Twos";
-            this.bt_Twos.Score = 0;
-            this.bt_Twos.Size = new System.Drawing.Size(143, 19);
-            this.bt_Twos.TabIndex = 17;
-            this.bt_Twos.Text = "0";
-            this.bt_Twos.UseVisualStyleBackColor = true;
-            // 
-            // bt_Ones
-            // 
-            this.bt_Ones.calculateScoreHandler = null;
-            this.bt_Ones.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bt_Ones.Enabled = false;
-            this.bt_Ones.ForeColor = System.Drawing.Color.Red;
-            this.bt_Ones.isPicked = false;
-            this.bt_Ones.Location = new System.Drawing.Point(153, 4);
-            this.bt_Ones.Name = "bt_Ones";
-            this.bt_Ones.Score = 0;
-            this.bt_Ones.Size = new System.Drawing.Size(143, 19);
-            this.bt_Ones.TabIndex = 16;
-            this.bt_Ones.Text = "0";
-            this.bt_Ones.UseVisualStyleBackColor = true;
+            this.bt_Dice1.Value = 0;
             // 
             // label17
             // 
@@ -575,6 +584,28 @@
             this.lbl_RollsRemaining.Size = new System.Drawing.Size(13, 13);
             this.lbl_RollsRemaining.TabIndex = 9;
             this.lbl_RollsRemaining.Text = "3";
+            // 
+            // lbl_SumSameNumber
+            // 
+            this.lbl_SumSameNumber.AutoSize = true;
+            this.lbl_SumSameNumber.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_SumSameNumber.Location = new System.Drawing.Point(153, 157);
+            this.lbl_SumSameNumber.Name = "lbl_SumSameNumber";
+            this.lbl_SumSameNumber.Size = new System.Drawing.Size(143, 25);
+            this.lbl_SumSameNumber.TabIndex = 31;
+            this.lbl_SumSameNumber.Text = "label18";
+            this.lbl_SumSameNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbl_SameNumberBonus
+            // 
+            this.lbl_SameNumberBonus.AutoSize = true;
+            this.lbl_SameNumberBonus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_SameNumberBonus.Location = new System.Drawing.Point(153, 183);
+            this.lbl_SameNumberBonus.Name = "lbl_SameNumberBonus";
+            this.lbl_SameNumberBonus.Size = new System.Drawing.Size(143, 25);
+            this.lbl_SameNumberBonus.TabIndex = 32;
+            this.lbl_SameNumberBonus.Text = "label18";
+            this.lbl_SameNumberBonus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // GameMenu
             // 
@@ -639,5 +670,7 @@
         private System.Windows.Forms.Button bt_RollDice;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label lbl_RollsRemaining;
+        private System.Windows.Forms.Label lbl_SumSameNumber;
+        private System.Windows.Forms.Label lbl_SameNumberBonus;
     }
 }

@@ -9,7 +9,19 @@ namespace Assignment._7.YahtzeeGame.View.CustomControl
 {
     public class YahtzeeButton : Button
     {
-        public bool isPicked { get; set; }
+        private bool isPicked;
+
+        public bool IsPicked
+        {
+            get { return isPicked; }
+            set
+            {
+                if (value)
+                    this.ForeColor = System.Drawing.Color.Green;
+                isPicked = value;
+            }
+        }
+
 
         private int score;
 

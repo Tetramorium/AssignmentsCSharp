@@ -69,7 +69,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\Custom.cs" />
+    <Compile Include="Controller\SQLiteDbCustom.cs" />
     <Compile Include="Controller\DatabaseContext.cs" />
     <Compile Include="Model\Movie.cs" />
     <Compile Include="View\App.cs">

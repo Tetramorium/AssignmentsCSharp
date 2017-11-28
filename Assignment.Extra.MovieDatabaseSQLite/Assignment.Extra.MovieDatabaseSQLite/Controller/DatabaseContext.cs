@@ -12,14 +12,8 @@ namespace Assignment.Extra.MovieDatabaseSQLite.Controller
     public class DatabaseContext : DbContext
     {
         public DatabaseContext()
-            : base("Data Source=|DataDirectory|Database.sqlite")
+            : base("Data Source=Database.sqlite;Version=3;")
         {
-        }
-
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            var sqliteConnectionInitializer = new SqliteCreateDatabaseIfNotExists<DatabaseContext>(modelBuilder);
-            Database.SetInitializer(sqliteConnectionInitializer);
         }
 
         public DbSet<Movie> Movies { get; set; }

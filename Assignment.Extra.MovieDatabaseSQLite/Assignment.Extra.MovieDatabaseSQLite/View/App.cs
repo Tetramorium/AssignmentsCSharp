@@ -19,7 +19,12 @@ namespace Assignment.Extra.MovieDatabaseSQLite.View
         public App()
         {
             InitializeComponent();
-            DatabaseController dc = new DatabaseController();
+            dc = new DatabaseController();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dc.DisplayMovies();
         }
     }
 }

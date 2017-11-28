@@ -17,7 +17,7 @@ namespace Assignment._7.YahtzeeGame
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new App());
+            Application.Run(new Yahtzee());
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Assignment._7.YahtzeeGame.View
 {
-    partial class App
+    partial class Yahtzee
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.mainMenu1 = new Assignment._7.YahtzeeGame.View.Partial.MainMenu();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Yahtzee));
             this.gameMenu1 = new Assignment._7.YahtzeeGame.View.Partial.GameMenu();
+            this.mainMenu1 = new Assignment._7.YahtzeeGame.View.Partial.MainMenu();
             this.SuspendLayout();
+            // 
+            // gameMenu1
+            // 
+            this.gameMenu1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.gameMenu1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gameMenu1.Location = new System.Drawing.Point(0, 0);
+            this.gameMenu1.Name = "gameMenu1";
+            this.gameMenu1.RollsRemaining = 3;
+            this.gameMenu1.Size = new System.Drawing.Size(624, 441);
+            this.gameMenu1.TabIndex = 0;
+            this.gameMenu1.Visible = false;
             // 
             // mainMenu1
             // 
@@ -40,17 +52,7 @@
             this.mainMenu1.Size = new System.Drawing.Size(624, 441);
             this.mainMenu1.TabIndex = 1;
             // 
-            // gameMenu1
-            // 
-            this.gameMenu1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.gameMenu1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gameMenu1.Location = new System.Drawing.Point(0, 0);
-            this.gameMenu1.Name = "gameMenu1";
-            this.gameMenu1.Size = new System.Drawing.Size(624, 441);
-            this.gameMenu1.TabIndex = 0;
-            this.gameMenu1.Visible = false;
-            // 
-            // App
+            // Yahtzee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -58,8 +60,9 @@
             this.Controls.Add(this.gameMenu1);
             this.Controls.Add(this.mainMenu1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "App";
+            this.Name = "Yahtzee";
             this.Text = "App";
             this.ResumeLayout(false);
 

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Assignment._7.YahtzeeGame.View
 {
-    public partial class App : Form
+    public partial class Yahtzee : Form
     {
-        public App()
+        public Yahtzee()
         {
             InitializeComponent();
 
@@ -25,7 +25,15 @@ namespace Assignment._7.YahtzeeGame.View
 
             this.gameMenu1.StartGame();
 
+            this.gameMenu1.GameOver += GameMenu1_GameOver;
+
             this.gameMenu1.Show();
+        }
+
+        private void GameMenu1_GameOver(object sender, EventArgs e)
+        {
+            this.gameMenu1.Hide();
+            this.mainMenu1.Show();
         }
     }
 }

@@ -58,6 +58,9 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.bt_Ones = new Assignment._7.YahtzeeGame.View.CustomControl.YahtzeeButton();
+            this.lbl_SumSameNumber = new System.Windows.Forms.Label();
+            this.lbl_SameNumberBonus = new System.Windows.Forms.Label();
+            this.lbl_TotalScore = new System.Windows.Forms.Label();
             this.bt_RollDice = new System.Windows.Forms.Button();
             this.bt_Dice5 = new Assignment._7.YahtzeeGame.View.CustomControl.DiceButton();
             this.bt_Dice4 = new Assignment._7.YahtzeeGame.View.CustomControl.DiceButton();
@@ -66,8 +69,7 @@
             this.bt_Dice1 = new Assignment._7.YahtzeeGame.View.CustomControl.DiceButton();
             this.label17 = new System.Windows.Forms.Label();
             this.lbl_RollsRemaining = new System.Windows.Forms.Label();
-            this.lbl_SumSameNumber = new System.Windows.Forms.Label();
-            this.lbl_SameNumberBonus = new System.Windows.Forms.Label();
+            this.bt_Exit = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -110,6 +112,7 @@
             this.tableLayoutPanel1.Controls.Add(this.bt_Ones, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.lbl_SumSameNumber, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.lbl_SameNumberBonus, 1, 7);
+            this.tableLayoutPanel1.Controls.Add(this.lbl_TotalScore, 1, 15);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(314, 10);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 16;
@@ -502,6 +505,39 @@
             this.bt_Ones.Text = "0";
             this.bt_Ones.UseVisualStyleBackColor = true;
             // 
+            // lbl_SumSameNumber
+            // 
+            this.lbl_SumSameNumber.AutoSize = true;
+            this.lbl_SumSameNumber.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_SumSameNumber.Location = new System.Drawing.Point(153, 157);
+            this.lbl_SumSameNumber.Name = "lbl_SumSameNumber";
+            this.lbl_SumSameNumber.Size = new System.Drawing.Size(143, 25);
+            this.lbl_SumSameNumber.TabIndex = 31;
+            this.lbl_SumSameNumber.Text = "0";
+            this.lbl_SumSameNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbl_SameNumberBonus
+            // 
+            this.lbl_SameNumberBonus.AutoSize = true;
+            this.lbl_SameNumberBonus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_SameNumberBonus.Location = new System.Drawing.Point(153, 183);
+            this.lbl_SameNumberBonus.Name = "lbl_SameNumberBonus";
+            this.lbl_SameNumberBonus.Size = new System.Drawing.Size(143, 25);
+            this.lbl_SameNumberBonus.TabIndex = 32;
+            this.lbl_SameNumberBonus.Text = "0";
+            this.lbl_SameNumberBonus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbl_TotalScore
+            // 
+            this.lbl_TotalScore.AutoSize = true;
+            this.lbl_TotalScore.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_TotalScore.Location = new System.Drawing.Point(153, 391);
+            this.lbl_TotalScore.Name = "lbl_TotalScore";
+            this.lbl_TotalScore.Size = new System.Drawing.Size(143, 28);
+            this.lbl_TotalScore.TabIndex = 33;
+            this.lbl_TotalScore.Text = "0";
+            this.lbl_TotalScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // bt_RollDice
             // 
             this.bt_RollDice.Location = new System.Drawing.Point(88, 141);
@@ -585,33 +621,22 @@
             this.lbl_RollsRemaining.TabIndex = 9;
             this.lbl_RollsRemaining.Text = "3";
             // 
-            // lbl_SumSameNumber
+            // bt_Exit
             // 
-            this.lbl_SumSameNumber.AutoSize = true;
-            this.lbl_SumSameNumber.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_SumSameNumber.Location = new System.Drawing.Point(153, 157);
-            this.lbl_SumSameNumber.Name = "lbl_SumSameNumber";
-            this.lbl_SumSameNumber.Size = new System.Drawing.Size(143, 25);
-            this.lbl_SumSameNumber.TabIndex = 31;
-            this.lbl_SumSameNumber.Text = "label18";
-            this.lbl_SumSameNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbl_SameNumberBonus
-            // 
-            this.lbl_SameNumberBonus.AutoSize = true;
-            this.lbl_SameNumberBonus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_SameNumberBonus.Location = new System.Drawing.Point(153, 183);
-            this.lbl_SameNumberBonus.Name = "lbl_SameNumberBonus";
-            this.lbl_SameNumberBonus.Size = new System.Drawing.Size(143, 25);
-            this.lbl_SameNumberBonus.TabIndex = 32;
-            this.lbl_SameNumberBonus.Text = "label18";
-            this.lbl_SameNumberBonus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bt_Exit.Location = new System.Drawing.Point(12, 401);
+            this.bt_Exit.Name = "bt_Exit";
+            this.bt_Exit.Size = new System.Drawing.Size(83, 23);
+            this.bt_Exit.TabIndex = 10;
+            this.bt_Exit.Text = "Back to menu";
+            this.bt_Exit.UseVisualStyleBackColor = true;
+            this.bt_Exit.Click += new System.EventHandler(this.bt_Exit_Click);
             // 
             // GameMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.Controls.Add(this.bt_Exit);
             this.Controls.Add(this.lbl_RollsRemaining);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.bt_RollDice);
@@ -672,5 +697,7 @@
         private System.Windows.Forms.Label lbl_RollsRemaining;
         private System.Windows.Forms.Label lbl_SumSameNumber;
         private System.Windows.Forms.Label lbl_SameNumberBonus;
+        private System.Windows.Forms.Label lbl_TotalScore;
+        private System.Windows.Forms.Button bt_Exit;
     }
 }

@@ -20,7 +20,7 @@ namespace Assignment._7.YahtzeeGame.View.Partial
         private List<Bitmap> diceImages;
         private List<int> currentDiceValues;
 
-        private List<YahtzeeButton> sameNumber;
+        public event EventHandler GameOver;
 
         private int rollsRemaining = 3;
 
@@ -53,14 +53,6 @@ namespace Assignment._7.YahtzeeGame.View.Partial
             this.bt_Fives.Click += sameNumberYahtzeeClicked;
             this.bt_Sixes.Click += sameNumberYahtzeeClicked;
 
-            //sameNumber = new List<YahtzeeButton>();
-
-            //sameNumber.Add(bt_Ones);
-            //sameNumber.Add(bt_Twos);
-            //sameNumber.Add(bt_Threes);
-            //sameNumber.Add(bt_Fours);
-            //sameNumber.Add(bt_Fives);
-            //sameNumber.Add(bt_Sixes);
 
             this.bt_ThreeOfKind.calculateScoreHandler = YahtzeeScoreFunctions.calculateThreeOfKind;
             this.bt_FourOfKind.calculateScoreHandler = YahtzeeScoreFunctions.calculateFourOfKind;
@@ -89,7 +81,7 @@ namespace Assignment._7.YahtzeeGame.View.Partial
             addClickEventDices();
             addClickEventYahtzeeButtons();
 
-            toggleDiceButtons<DiceButton>(false);
+            toggleDiceButtons(false);
             getRandomDices();
         }
 
@@ -103,23 +95,53 @@ namespace Assignment._7.YahtzeeGame.View.Partial
         }
         public void toggleYahtzeeButtons(bool shouldBeEnabled)
         {
+            bool gameEnded = true;
             foreach (Control c in this.tableLayoutPanel1.Controls)
             {
                 if (c is YahtzeeButton)
                 {
                     YahtzeeButton ybt = (YahtzeeButton)c;
                     if (!ybt.IsPicked)
+                    {
                         c.Enabled = shouldBeEnabled;
+                        gameEnded = false;
+                    }
                 }
+            }
+
+            if (gameEnded)
+            {
+                this.lbl_SumSameNumber.Text = totalSumSameNumber.ToString();
+
+                int totalScore = 0;
+                foreach (Control c in this.tableLayoutPanel1.Controls)
+                {
+                    if (c is YahtzeeButton)
+                    {
+                        YahtzeeButton ybt = (YahtzeeButton)c;
+                        totalScore += ybt.Score;
+                    }
+                }
+
+                if (totalSumSameNumber > 63)
+                    totalScore += 35;
+
+                this.lbl_TotalScore.Text = totalScore.ToString();
+                MessageBox.Show("Your score is: " + totalScore.ToString());
+                this.GameOver?.Invoke(this, new EventArgs());
             }
         }
 
-        public void toggleDiceButtons<T>(bool shouldBeEnabled)
+        public void toggleDiceButtons(bool shouldBeEnabled)
         {
             foreach (Control c in this.Controls)
             {
-                if (c is T)
-                    c.Enabled = shouldBeEnabled;
+                if (c is DiceButton)
+                {
+                    DiceButton db = (DiceButton)c;
+                    db.Enabled = shouldBeEnabled;
+                    db.IsSelected = false;
+                }
             }
         }
 
@@ -156,7 +178,7 @@ namespace Assignment._7.YahtzeeGame.View.Partial
             ytz.Enabled = false;
 
             this.RollsRemaining = 3;
-            toggleDiceButtons<DiceButton>(false);
+            toggleDiceButtons(false);
             toggleYahtzeeButtons(false);
             this.bt_RollDice.Enabled = true;
         }
@@ -175,7 +197,23 @@ namespace Assignment._7.YahtzeeGame.View.Partial
 
         public void StartGame()
         {
-            toggleYahtzeeButtons(false);
+            foreach (Control c in this.tableLayoutPanel1.Controls)
+            {
+                if (c is YahtzeeButton)
+                {
+                    YahtzeeButton ybt = (YahtzeeButton)c;
+                    ybt.Score = 0;
+                    ybt.IsPicked = false;
+                    ybt.Enabled = false;
+                }
+            }
+
+            toggleDiceButtons(false);
+
+            this.RollsRemaining = 3;
+            this.lbl_SameNumberBonus.Text = "0";
+            this.lbl_SumSameNumber.Text = "0";
+            this.lbl_TotalScore.Text = "0";
         }
 
         private void bt_DiceClick(object sender, EventArgs e)
@@ -213,7 +251,7 @@ namespace Assignment._7.YahtzeeGame.View.Partial
 
             if (RollsRemaining == 3)
             {
-                this.toggleDiceButtons<DiceButton>(true);
+                this.toggleDiceButtons(true);
                 toggleYahtzeeButtons(true);
             }
 
@@ -221,9 +259,14 @@ namespace Assignment._7.YahtzeeGame.View.Partial
 
             if (rollsRemaining == 0)
             {
-                this.toggleDiceButtons<DiceButton>(false);
+                this.toggleDiceButtons(false);
                 this.bt_RollDice.Enabled = false;
             }
+        }
+
+        private void bt_Exit_Click(object sender, EventArgs e)
+        {
+            this.GameOver?.Invoke(this, new EventArgs());
         }
     }
 }

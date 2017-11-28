@@ -94,31 +94,42 @@ namespace Assignment._7.YahtzeeGame.Tools
         }
         public static int calculateSmallStraight(List<int> dices)
         {
-            if (dices.Select(x => x).Distinct().Count() > 3)
-                return 30;
+            List<int> distinctDices = dices.Select(x => x).Distinct().ToList();
+            if (distinctDices.Count() > 3)
+            {
+                if (((distinctDices[0] == 1) && (distinctDices[1] == 2) && (distinctDices[2] == 3) && (distinctDices[3] == 4)) ||
+                    ((distinctDices[0] == 2) && (distinctDices[1] == 3) && (distinctDices[2] == 4) && (distinctDices[3] == 5)) ||
+                    ((distinctDices[0] == 3) && (distinctDices[1] == 4) && (distinctDices[2] == 5) && (distinctDices[3] == 6)) ||
+                    ((distinctDices[0] == 1) && (distinctDices[1] == 2) && (distinctDices[2] == 3) && (distinctDices[3] == 4)) ||
+                    ((distinctDices[0] == 2) && (distinctDices[1] == 3) && (distinctDices[2] == 4) && (distinctDices[3] == 5)) ||
+                    ((distinctDices[0] == 3) && (distinctDices[1] == 4) && (distinctDices[2] == 5) && (distinctDices[3] == 6)))
+                {
+                    return 30;
+                }
+            }
             return 0;
         }
+
         public static int calculateLargeStraight(List<int> dices)
         {
-            if (dices.Select(x => x).Distinct().Count() > 4)
-                return 40;
+            List<int> distinctDices = dices.Select(x => x).Distinct().ToList();
+            if (distinctDices.Count() > 4)
+            {
+                if (((distinctDices[0] == 1) && (distinctDices[1] == 2) && (distinctDices[2] == 3) && (distinctDices[3] == 4) && (distinctDices[4] == 5)) ||
+                ((distinctDices[0] == 2) && (distinctDices[1] == 3) && (distinctDices[2] == 4) && (distinctDices[3] == 5) && (distinctDices[4] == 6)))
+                {
+                    return 40;
+                }
+            }
             return 0;
         }
         public static int calculateYahtzee(List<int> dices)
         {
-            int score = 0;
-            for (int j = 1; j <= 6; j++)
+            if(dices.Select(x => x).Distinct().Count() == 1)
             {
-                int counter = 0;
-                foreach (int i in dices)
-                {
-                    if (i == j)
-                        counter++;
-                    if (counter == 5)
-                        return 50;
-                }
+                return 50;
             }
-            return score;
+            return 0;
         }
 
     }

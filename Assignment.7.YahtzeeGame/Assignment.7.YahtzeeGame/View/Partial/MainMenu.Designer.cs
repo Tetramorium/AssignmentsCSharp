@@ -33,9 +33,9 @@
             // 
             // bt_StartGame
             // 
-            this.bt_StartGame.Location = new System.Drawing.Point(267, 152);
+            this.bt_StartGame.Location = new System.Drawing.Point(182, 81);
             this.bt_StartGame.Name = "bt_StartGame";
-            this.bt_StartGame.Size = new System.Drawing.Size(75, 23);
+            this.bt_StartGame.Size = new System.Drawing.Size(266, 202);
             this.bt_StartGame.TabIndex = 0;
             this.bt_StartGame.Text = "Start Game";
             this.bt_StartGame.UseVisualStyleBackColor = true;

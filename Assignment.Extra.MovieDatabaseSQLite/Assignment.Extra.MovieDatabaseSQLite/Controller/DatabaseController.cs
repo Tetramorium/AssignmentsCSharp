@@ -8,30 +8,33 @@ using System.Threading.Tasks;
 
 namespace Assignment.Extra.MovieDatabaseSQLite.Controller
 {
-    public class DatabaseController
+    public static class DatabaseController
     {
-        public DatabaseController()
+        public static void InitialSetup()
         {
             if (!System.IO.File.Exists("Database.sqlite"))
             {
-                InitialSetup();
+                SQLiteConnection.CreateFile("Database.sqlite");
+
+                using (DatabaseContext dc = new DatabaseContext())
+                {
+                    dc.Database.ExecuteSqlCommand("CREATE TABLE IF NOT EXISTS 'Movies' ('Name' TEXT NOT NULL PRIMARY KEY, 'ReleaseDate' date)");
+                    dc.Movies.Add(new Movie { Name = "Die Hard", ReleaseDate = new DateTime(1988, 11, 3) });
+                    dc.SaveChanges();
+                }
             }
         }
 
-
-        private void InitialSetup()
+        public static void AddMovie(Movie _Movie)
         {
-            SQLiteConnection.CreateFile("Database.sqlite");
-
             using (DatabaseContext dc = new DatabaseContext())
             {
-                dc.Database.ExecuteSqlCommand("CREATE TABLE IF NOT EXISTS 'Movies' ('Name' TEXT NOT NULL PRIMARY KEY, 'ReleaseDate' date)");
-                dc.Movies.Add(new Movie { Name = "Die Hard", ReleaseDate = new DateTime(1988, 11, 3) });
+                dc.Movies.Add(_Movie);
                 dc.SaveChanges();
             }
         }
 
-        public List<Movie> GetMovies()
+        public static List<Movie> GetMovies()
         {
             using (DatabaseContext dc = new DatabaseContext())
             {
@@ -39,7 +42,7 @@ namespace Assignment.Extra.MovieDatabaseSQLite.Controller
             }
         }
 
-        public void DisplayMovies()
+        public static void DisplayMovies()
         {
             using (DatabaseContext dc = new DatabaseContext())
             {

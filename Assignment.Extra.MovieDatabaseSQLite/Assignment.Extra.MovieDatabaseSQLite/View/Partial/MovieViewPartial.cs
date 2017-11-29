@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Assignment.Extra.MovieDatabaseSQLite.Model;
 
 namespace Assignment.Extra.MovieDatabaseSQLite.View.Partial
 {
@@ -18,6 +19,14 @@ namespace Assignment.Extra.MovieDatabaseSQLite.View.Partial
 
             this.lbl_MovieName.Text = name;
             this.lbl_MovieReleaseDate.Text = releaseDate.ToString(("yyyy-MM-dd"));
+        }
+
+        public MovieViewPartial(Movie _Movie)
+        {
+            InitializeComponent();
+
+            this.lbl_MovieName.Text = _Movie.Name;
+            this.lbl_MovieReleaseDate.Text = _Movie.ReleaseDate.ToString(("yyyy-MM-dd"));
         }
     }
 }

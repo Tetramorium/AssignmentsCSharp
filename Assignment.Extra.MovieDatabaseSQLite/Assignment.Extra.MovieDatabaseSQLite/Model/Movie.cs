@@ -13,6 +13,17 @@ namespace Assignment.Extra.MovieDatabaseSQLite.Model
         public string Name { get; set; }
         public DateTime ReleaseDate { get; set; }
 
+        public Movie()
+        {
+
+        }
+
+        public Movie(string _Name, DateTime _ReleaseDate)
+        {
+            this.Name = _Name;
+            this.ReleaseDate = _ReleaseDate;
+        }
+
         public override string ToString()
         {
             return String.Format("Name: {0} Release: {1}", Name, ReleaseDate.ToString(("yyyy-MM-dd")));

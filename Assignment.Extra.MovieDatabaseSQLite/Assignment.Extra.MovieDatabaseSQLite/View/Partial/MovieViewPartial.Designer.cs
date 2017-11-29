@@ -58,7 +58,7 @@
             this.Controls.Add(this.lbl_MovieReleaseDate);
             this.Controls.Add(this.lbl_MovieName);
             this.Name = "MovieViewPartial";
-            this.Size = new System.Drawing.Size(100, 56);
+            this.Size = new System.Drawing.Size(100, 71);
             this.ResumeLayout(false);
             this.PerformLayout();
 

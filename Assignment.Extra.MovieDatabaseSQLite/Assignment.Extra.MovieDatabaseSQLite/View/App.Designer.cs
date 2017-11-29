@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
+            this.flp_MovieFlow = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(71, 85);
+            this.button1.Location = new System.Drawing.Point(106, 178);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -41,11 +42,20 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // flp_MovieFlow
+            // 
+            this.flp_MovieFlow.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flp_MovieFlow.Location = new System.Drawing.Point(12, 12);
+            this.flp_MovieFlow.Name = "flp_MovieFlow";
+            this.flp_MovieFlow.Size = new System.Drawing.Size(260, 160);
+            this.flp_MovieFlow.TabIndex = 1;
+            // 
             // App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.flp_MovieFlow);
             this.Controls.Add(this.button1);
             this.Name = "App";
             this.Text = "App";
@@ -56,5 +66,6 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.FlowLayoutPanel flp_MovieFlow;
     }
 }

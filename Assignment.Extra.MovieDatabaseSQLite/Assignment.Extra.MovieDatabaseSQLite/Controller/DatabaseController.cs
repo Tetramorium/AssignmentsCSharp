@@ -26,8 +26,16 @@ namespace Assignment.Extra.MovieDatabaseSQLite.Controller
             using (DatabaseContext dc = new DatabaseContext())
             {
                 dc.Database.ExecuteSqlCommand("CREATE TABLE IF NOT EXISTS 'Movies' ('Name' TEXT NOT NULL PRIMARY KEY, 'ReleaseDate' date)");
-                dc.Movies.Add(new Movie { Name = "Die Hard", ReleaseDate = new DateTime(1992, 01, 24) });
+                dc.Movies.Add(new Movie { Name = "Die Hard", ReleaseDate = new DateTime(1988, 11, 3) });
                 dc.SaveChanges();
+            }
+        }
+
+        public List<Movie> GetMovies()
+        {
+            using (DatabaseContext dc = new DatabaseContext())
+            {
+                return dc.Movies.ToList();
             }
         }
 

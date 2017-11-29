@@ -7,7 +7,7 @@
     <ProjectGuid>{E7A6A5BA-3769-4D50-B440-C72E8B8EBB55}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Assignment.Extra.MovieDatabaseSQLite</RootNamespace>
-    <AssemblyName>Assignment.Extra.MovieDatabaseSQLite</AssemblyName>
+    <AssemblyName>MovieDatabase</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -81,6 +81,12 @@
     <Compile Include="Controller\DatabaseController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Partial\MovieViewPartial.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Partial\MovieViewPartial.Designer.cs">
+      <DependentUpon>MovieViewPartial.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -92,6 +98,9 @@
     </Compile>
     <EmbeddedResource Include="View\App.resx">
       <DependentUpon>App.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Partial\MovieViewPartial.resx">
+      <DependentUpon>MovieViewPartial.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

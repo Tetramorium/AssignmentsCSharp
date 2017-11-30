@@ -34,6 +34,20 @@ namespace Assignment.Extra.MovieDatabaseSQLite.Controller
             }
         }
 
+        public static void DeleteMovie(string _MovieName)
+        {
+            using (DatabaseContext dc = new DatabaseContext())
+            {
+                Movie m = dc.Movies.Find(_MovieName);
+
+                if (m != null)
+                {
+                    dc.Movies.Remove(m);
+                    dc.SaveChanges();
+                }
+            }
+        }
+
         public static List<Movie> GetMovies()
         {
             using (DatabaseContext dc = new DatabaseContext())

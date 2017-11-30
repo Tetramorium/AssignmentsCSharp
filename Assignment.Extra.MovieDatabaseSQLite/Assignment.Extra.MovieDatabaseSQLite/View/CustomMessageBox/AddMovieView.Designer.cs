@@ -1,4 +1,4 @@
-﻿namespace Assignment.Extra.MovieDatabaseSQLite.View.MessageBox
+﻿namespace Assignment.Extra.MovieDatabaseSQLite.View.CustomMessageBox
 {
     partial class AddMovieView
     {

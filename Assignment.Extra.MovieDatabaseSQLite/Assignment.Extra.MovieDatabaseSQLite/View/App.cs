@@ -1,6 +1,6 @@
 ﻿using Assignment.Extra.MovieDatabaseSQLite.Controller;
 using Assignment.Extra.MovieDatabaseSQLite.Model;
-using Assignment.Extra.MovieDatabaseSQLite.View.MessageBox;
+using Assignment.Extra.MovieDatabaseSQLite.View.CustomMessageBox;
 using Assignment.Extra.MovieDatabaseSQLite.View.Partial;
 using System;
 using System.Collections.Generic;
@@ -27,7 +27,30 @@ namespace Assignment.Extra.MovieDatabaseSQLite.View
                 this.flp_MovieFlow.Controls.Add(new MovieViewPartial(m.Name, m.ReleaseDate));
             }
 
+            addDeleteEvents();
+        }
 
+        private void addDeleteEvents()
+        {
+            foreach(Control c in this.flp_MovieFlow.Controls)
+            {
+                MovieViewPartial mvp = (MovieViewPartial)c;
+
+                mvp.DeleteMovieClick += Mvp_DeleteMovieClick;
+            }
+        }
+
+        private void Mvp_DeleteMovieClick(object sender, EventArgs e)
+        {
+            MovieViewPartial mvp = (MovieViewPartial)sender;
+
+            DialogResult d = MessageBox.Show("Are you sure you want to delete this movie?", String.Format("{0}", mvp.MovieName), MessageBoxButtons.OKCancel);
+
+            if (d == DialogResult.OK)
+            {
+                DatabaseController.DeleteMovie(mvp.MovieName);
+                this.flp_MovieFlow.Controls.Remove(mvp);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -43,8 +66,9 @@ namespace Assignment.Extra.MovieDatabaseSQLite.View
             if (dialogResult == DialogResult.OK)
             {
                 DatabaseController.AddMovie(amv.newMovie);
-                this.flp_MovieFlow.Controls.Add(new MovieViewPartial(amv.newMovie));
-
+                MovieViewPartial mvp = new MovieViewPartial(amv.newMovie);
+                mvp.DeleteMovieClick += Mvp_DeleteMovieClick;
+                this.flp_MovieFlow.Controls.Add(mvp);
             }
         }
     }

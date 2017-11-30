@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Assignment.Extra.MovieDatabaseSQLite.View.MessageBox
+namespace Assignment.Extra.MovieDatabaseSQLite.View.CustomMessageBox
 {
     public partial class AddMovieView : Form
     {

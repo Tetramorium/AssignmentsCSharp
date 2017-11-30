@@ -81,10 +81,10 @@
     <Compile Include="Controller\DatabaseController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\MessageBox\AddMovieView.cs">
+    <Compile Include="View\CustomMessageBox\AddMovieView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\MessageBox\AddMovieView.Designer.cs">
+    <Compile Include="View\CustomMessageBox\AddMovieView.Designer.cs">
       <DependentUpon>AddMovieView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Partial\MovieViewPartial.cs">
@@ -105,7 +105,7 @@
     <EmbeddedResource Include="View\App.resx">
       <DependentUpon>App.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\MessageBox\AddMovieView.resx">
+    <EmbeddedResource Include="View\CustomMessageBox\AddMovieView.resx">
       <DependentUpon>AddMovieView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Partial\MovieViewPartial.resx">

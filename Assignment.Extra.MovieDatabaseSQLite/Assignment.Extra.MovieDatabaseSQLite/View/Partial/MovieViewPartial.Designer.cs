@@ -30,6 +30,7 @@
         {
             this.lbl_MovieName = new System.Windows.Forms.Label();
             this.lbl_MovieReleaseDate = new System.Windows.Forms.Label();
+            this.bt_DeleteMovie = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbl_MovieName
@@ -50,11 +51,23 @@
             this.lbl_MovieReleaseDate.TabIndex = 1;
             this.lbl_MovieReleaseDate.Text = "label2";
             // 
+            // bt_DeleteMovie
+            // 
+            this.bt_DeleteMovie.BackColor = System.Drawing.Color.Red;
+            this.bt_DeleteMovie.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.bt_DeleteMovie.Location = new System.Drawing.Point(4, 45);
+            this.bt_DeleteMovie.Name = "bt_DeleteMovie";
+            this.bt_DeleteMovie.Size = new System.Drawing.Size(24, 23);
+            this.bt_DeleteMovie.TabIndex = 2;
+            this.bt_DeleteMovie.UseVisualStyleBackColor = false;
+            this.bt_DeleteMovie.Click += new System.EventHandler(this.bt_DeleteMovie_Click);
+            // 
             // MovieViewPartial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.Controls.Add(this.bt_DeleteMovie);
             this.Controls.Add(this.lbl_MovieReleaseDate);
             this.Controls.Add(this.lbl_MovieName);
             this.Name = "MovieViewPartial";
@@ -68,5 +81,6 @@
 
         private System.Windows.Forms.Label lbl_MovieName;
         private System.Windows.Forms.Label lbl_MovieReleaseDate;
+        private System.Windows.Forms.Button bt_DeleteMovie;
     }
 }

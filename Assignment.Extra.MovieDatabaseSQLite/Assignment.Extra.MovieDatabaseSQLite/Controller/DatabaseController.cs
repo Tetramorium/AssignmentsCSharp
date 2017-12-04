@@ -1,6 +1,7 @@
 ﻿using Assignment.Extra.MovieDatabaseSQLite.Model;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.SQLite;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,7 @@ namespace Assignment.Extra.MovieDatabaseSQLite.Controller
 
                 using (DatabaseContext dc = new DatabaseContext())
                 {
-                    dc.Database.ExecuteSqlCommand("CREATE TABLE IF NOT EXISTS 'Movies' ('Name' TEXT NOT NULL PRIMARY KEY, 'ReleaseDate' date)");
+                    dc.Database.ExecuteSqlCommand("CREATE TABLE IF NOT EXISTS 'Movies' ('Id' INTEGER PRIMARY KEY AUTOINCREMENT,'Name' TEXT NOT NULL, 'ReleaseDate' date, CONSTRAINT name_unique UNIQUE (Name))");
                     dc.Movies.Add(new Movie { Name = "Die Hard", ReleaseDate = new DateTime(1988, 11, 3) });
                     dc.SaveChanges();
                 }
@@ -34,17 +35,49 @@ namespace Assignment.Extra.MovieDatabaseSQLite.Controller
             }
         }
 
-        public static void DeleteMovie(string _MovieName)
+        public static void DeleteMovie(int _MovieId)
         {
             using (DatabaseContext dc = new DatabaseContext())
             {
-                Movie m = dc.Movies.Find(_MovieName);
+                Movie m = dc.Movies.Find(_MovieId);
 
                 if (m != null)
                 {
                     dc.Movies.Remove(m);
                     dc.SaveChanges();
                 }
+            }
+        }
+
+        public static void EditMovie(int _MovieId, Movie _NewMovie)
+        {
+            using (DatabaseContext dc = new DatabaseContext())
+            {
+                Movie m = dc.Movies.Find(_MovieId);
+
+                if (m != null)
+                {
+                    m.Name = _NewMovie.Name;
+                    m.ReleaseDate = _NewMovie.ReleaseDate;
+
+                    dc.Entry(m).State = EntityState.Modified;           
+                    dc.SaveChanges();
+                }
+            }
+        }
+
+        public static Boolean CheckIfMovieExists(string _MovieName)
+        {
+            using (DatabaseContext dc = new DatabaseContext())
+            {
+                Movie m = dc.Movies.FirstOrDefault(e => e.Name == _MovieName);
+
+                if (m != null)
+                {
+                    return true;
+                }
+
+                return false;
             }
         }
 

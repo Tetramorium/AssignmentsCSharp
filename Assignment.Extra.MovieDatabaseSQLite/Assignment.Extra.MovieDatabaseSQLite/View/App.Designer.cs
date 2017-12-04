@@ -35,7 +35,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(187, 178);
+            this.button1.Location = new System.Drawing.Point(236, 41);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -45,15 +45,18 @@
             // 
             // flp_MovieFlow
             // 
+            this.flp_MovieFlow.AutoScroll = true;
             this.flp_MovieFlow.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flp_MovieFlow.Location = new System.Drawing.Point(12, 12);
+            this.flp_MovieFlow.Dock = System.Windows.Forms.DockStyle.Left;
+            this.flp_MovieFlow.Location = new System.Drawing.Point(0, 0);
+            this.flp_MovieFlow.MinimumSize = new System.Drawing.Size(0, 200);
             this.flp_MovieFlow.Name = "flp_MovieFlow";
-            this.flp_MovieFlow.Size = new System.Drawing.Size(260, 160);
+            this.flp_MovieFlow.Size = new System.Drawing.Size(215, 261);
             this.flp_MovieFlow.TabIndex = 1;
             // 
             // bt_AddMovie
             // 
-            this.bt_AddMovie.Location = new System.Drawing.Point(12, 178);
+            this.bt_AddMovie.Location = new System.Drawing.Point(236, 12);
             this.bt_AddMovie.Name = "bt_AddMovie";
             this.bt_AddMovie.Size = new System.Drawing.Size(75, 23);
             this.bt_AddMovie.TabIndex = 2;
@@ -65,7 +68,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(383, 261);
             this.Controls.Add(this.bt_AddMovie);
             this.Controls.Add(this.flp_MovieFlow);
             this.Controls.Add(this.button1);

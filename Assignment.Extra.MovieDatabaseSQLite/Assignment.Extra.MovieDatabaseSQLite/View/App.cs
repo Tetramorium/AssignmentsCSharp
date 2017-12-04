@@ -24,19 +24,35 @@ namespace Assignment.Extra.MovieDatabaseSQLite.View
 
             foreach (Movie m in DatabaseController.GetMovies())
             {
-                this.flp_MovieFlow.Controls.Add(new MovieViewPartial(m.Name, m.ReleaseDate));
+                this.flp_MovieFlow.Controls.Add(new MovieViewPartial(m.Id, m.Name, m.ReleaseDate));
             }
 
-            addDeleteEvents();
+            addEditDeleteEvents();
         }
 
-        private void addDeleteEvents()
+        private void addEditDeleteEvents()
         {
             foreach(Control c in this.flp_MovieFlow.Controls)
             {
                 MovieViewPartial mvp = (MovieViewPartial)c;
 
                 mvp.DeleteMovieClick += Mvp_DeleteMovieClick;
+                mvp.EditMovieClick += Mvp_EditMovieClick;
+            }
+        }
+
+        private void Mvp_EditMovieClick(object sender, EventArgs e)
+        {
+            MovieViewPartial mvp = (MovieViewPartial)sender;
+
+            AddMovieView amv = new AddMovieView(mvp.MovieName, mvp.MovieReleaseDate);
+            DialogResult dialogResult = amv.ShowDialog();
+
+            if (dialogResult == DialogResult.OK)
+            {
+                DatabaseController.EditMovie(mvp.MovieId, amv.NewMovie);
+                mvp.MovieName = amv.NewMovie.Name;
+                mvp.MovieReleaseDate = amv.NewMovie.ReleaseDate;
             }
         }
 
@@ -48,7 +64,7 @@ namespace Assignment.Extra.MovieDatabaseSQLite.View
 
             if (d == DialogResult.OK)
             {
-                DatabaseController.DeleteMovie(mvp.MovieName);
+                DatabaseController.DeleteMovie(mvp.MovieId);
                 this.flp_MovieFlow.Controls.Remove(mvp);
             }
         }
@@ -65,9 +81,10 @@ namespace Assignment.Extra.MovieDatabaseSQLite.View
 
             if (dialogResult == DialogResult.OK)
             {
-                DatabaseController.AddMovie(amv.newMovie);
-                MovieViewPartial mvp = new MovieViewPartial(amv.newMovie);
+                DatabaseController.AddMovie(amv.NewMovie);
+                MovieViewPartial mvp = new MovieViewPartial(amv.NewMovie);
                 mvp.DeleteMovieClick += Mvp_DeleteMovieClick;
+                mvp.EditMovieClick += Mvp_EditMovieClick;
                 this.flp_MovieFlow.Controls.Add(mvp);
             }
         }

@@ -89,6 +89,14 @@ namespace Assignment.Extra.MovieDatabaseSQLite.Controller
             }
         }
 
+        public static List<Movie> SearchMovie(string _MovieNamePartial)
+        {
+            using (DatabaseContext dc = new DatabaseContext())
+            {
+                return dc.Movies.Where(e => e.Name.ToLower().Contains(_MovieNamePartial.ToLower())).ToList();
+            }
+        }
+
         public static void DisplayMovies()
         {
             using (DatabaseContext dc = new DatabaseContext())

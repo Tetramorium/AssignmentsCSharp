@@ -58,9 +58,10 @@
             // 
             this.rtb_MovieName.BackColor = System.Drawing.SystemColors.ControlLight;
             this.rtb_MovieName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtb_MovieName.Cursor = System.Windows.Forms.Cursors.Default;
+            this.rtb_MovieName.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rtb_MovieName.Location = new System.Drawing.Point(6, 3);
             this.rtb_MovieName.Name = "rtb_MovieName";
+            this.rtb_MovieName.ReadOnly = true;
             this.rtb_MovieName.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.rtb_MovieName.Size = new System.Drawing.Size(178, 35);
             this.rtb_MovieName.TabIndex = 3;
@@ -86,6 +87,7 @@
             this.Controls.Add(this.rtb_MovieName);
             this.Controls.Add(this.bt_DeleteMovie);
             this.Controls.Add(this.lbl_MovieReleaseDate);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "MovieViewPartial";
             this.Size = new System.Drawing.Size(187, 70);
             this.ResumeLayout(false);

@@ -22,24 +22,21 @@ namespace Assignment.Extra.MovieDatabaseSQLite.View
 
             DatabaseController.InitialSetup();
 
-            foreach (Movie m in DatabaseController.GetMovies())
-            {
-                this.flp_MovieFlow.Controls.Add(new MovieViewPartial(m.Id, m.Name, m.ReleaseDate));
-            }
+            FillMovieFlowControls(DatabaseController.GetMovies());
 
-            addEditDeleteEvents();
+            //addEditDeleteEvents();
         }
 
-        private void addEditDeleteEvents()
-        {
-            foreach(Control c in this.flp_MovieFlow.Controls)
-            {
-                MovieViewPartial mvp = (MovieViewPartial)c;
+        //private void addEditDeleteEvents()
+        //{
+        //    foreach (Control c in this.flp_MovieFlow.Controls)
+        //    {
+        //        MovieViewPartial mvp = (MovieViewPartial)c;
 
-                mvp.DeleteMovieClick += Mvp_DeleteMovieClick;
-                mvp.EditMovieClick += Mvp_EditMovieClick;
-            }
-        }
+        //        mvp.DeleteMovieClick += Mvp_DeleteMovieClick;
+        //        mvp.EditMovieClick += Mvp_EditMovieClick;
+        //    }
+        //}
 
         private void Mvp_EditMovieClick(object sender, EventArgs e)
         {
@@ -69,11 +66,6 @@ namespace Assignment.Extra.MovieDatabaseSQLite.View
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            DatabaseController.DisplayMovies();
-        }
-
         private void bt_AddMovie_Click(object sender, EventArgs e)
         {
             AddMovieView amv = new AddMovieView();
@@ -87,6 +79,56 @@ namespace Assignment.Extra.MovieDatabaseSQLite.View
                 mvp.EditMovieClick += Mvp_EditMovieClick;
                 this.flp_MovieFlow.Controls.Add(mvp);
             }
+        }
+
+        private void tb_SearchMovie_TextChanged(object sender, EventArgs e)
+        {
+            if (tb_SearchMovie.Text.Trim() == "")
+            {
+                FillMovieFlowControls(DatabaseController.GetMovies());
+            }
+            else
+            {
+                FillMovieFlowControls(DatabaseController.SearchMovie(tb_SearchMovie.Text));
+            }
+        }
+
+        private void FillMovieFlowControls(List<Movie> _ListMovies)
+        {
+            this.flp_MovieFlow.Controls.Clear();
+
+            switch (this.cb_OrderBy.SelectedIndex)
+            {
+                // Order by Name
+                case 0:
+                    _ListMovies = _ListMovies.OrderBy(e => e.Name).ToList();
+                    break;
+                // Order by ReleaseDate
+                case 1:
+                    _ListMovies = _ListMovies.OrderBy(e => e.ReleaseDate).ToList();
+                    break;
+                case -1:
+
+                    break;
+            }
+
+            foreach (Movie m in _ListMovies)
+            {
+                MovieViewPartial mvp = new MovieViewPartial(m.Id, m.Name, m.ReleaseDate);
+                this.flp_MovieFlow.Controls.Add(mvp);
+                mvp.DeleteMovieClick += Mvp_DeleteMovieClick;
+                mvp.EditMovieClick += Mvp_EditMovieClick;
+            }
+        }
+
+        private void cb_OrderBy_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            tb_SearchMovie_TextChanged(sender, e);
+        }
+
+        private void App_Load(object sender, EventArgs e)
+        {
+            this.cb_OrderBy.SelectedIndex = 0;
         }
     }
 }
